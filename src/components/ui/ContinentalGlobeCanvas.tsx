@@ -15,13 +15,75 @@ interface Point3D {
   baseRadius: number;
 }
 
+// Generate points distributed across sphere once statically so it is completely stable
+const generateSpherePoints = (): Point3D[] => {
+  const points: Point3D[] = [];
+  const totalPoints = 1400;
+  const goldenRatio = (1 + Math.sqrt(5)) / 2;
+
+  const isLandmass = (lat: number, lon: number): boolean => {
+    // Indonesia & SE Asia
+    if (lat >= -11 && lat <= 20 && lon >= 95 && lon <= 142) return true;
+    // East Asia
+    if (lat >= 20 && lat <= 55 && lon >= 100 && lon <= 145) return true;
+    // Australia
+    if (lat >= -40 && lat <= -11 && lon >= 113 && lon <= 154) return true;
+    // India / South Asia
+    if (lat >= 6 && lat <= 35 && lon >= 68 && lon <= 92) return true;
+    // Europe
+    if (lat >= 36 && lat <= 65 && lon >= -10 && lon <= 45) return true;
+    // Africa
+    if (lat >= -35 && lat <= 37 && lon >= -18 && lon <= 51) return true;
+    // North America
+    if (lat >= 15 && lat <= 70 && lon >= -168 && lon <= -52) return true;
+    // South America
+    if (lat >= -56 && lat <= 12 && lon >= -81 && lon <= -34) return true;
+    return false;
+  };
+
+  for (let i = 0; i < totalPoints; i++) {
+    const theta = (2 * Math.PI * i) / goldenRatio;
+    const phi = Math.acos(1 - (2 * (i + 0.5)) / totalPoints);
+    const lat = (Math.PI / 2 - phi) * (180 / Math.PI);
+    const lon = ((theta % (2 * Math.PI)) - Math.PI) * (180 / Math.PI);
+
+    const isLand = isLandmass(lat, lon);
+    const randCheck = ((i * 9301 + 49297) % 233280) / 233280; // pseudo-random deterministic
+
+    if (isLand || randCheck < 0.22) {
+      const x = Math.cos(phi - Math.PI / 2) * Math.sin(theta);
+      const y = Math.sin(phi - Math.PI / 2);
+      const z = Math.cos(phi - Math.PI / 2) * Math.cos(theta);
+      points.push({
+        lat,
+        lon,
+        x,
+        y,
+        z,
+        isLand,
+        baseRadius: isLand ? 1.4 : 0.75,
+      });
+    }
+  }
+
+  return points;
+};
+
+const STATIC_POINTS = generateSpherePoints();
+
 export const ContinentalGlobeCanvas: React.FC<ContinentalGlobeCanvasProps> = ({
   className = '',
   progress = 1,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mouseRef = useRef({ x: 0, y: 0, isDragging: false, lastX: 0, lastY: 0 });
+  const mouseRef = useRef({ isDragging: false, lastX: 0, lastY: 0 });
   const rotRef = useRef({ y: -1.9, x: 0.25 }); // Start facing Indonesia / SE Asia
+  const progressRef = useRef(progress);
+
+  // Keep progress updated in ref without causing useEffect teardown
+  useEffect(() => {
+    progressRef.current = progress;
+  }, [progress]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -29,72 +91,27 @@ export const ContinentalGlobeCanvas: React.FC<ContinentalGlobeCanvasProps> = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let width = (canvas.width = canvas.parentElement?.clientWidth || 500);
-    let height = (canvas.height = canvas.parentElement?.clientHeight || 500);
+    let width = 450;
+    let height = 450;
+    let isVisible = true;
 
     const handleResize = () => {
       if (!canvas.parentElement) return;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = canvas.parentElement.clientWidth;
-      height = canvas.parentElement.clientHeight;
+      width = Math.max(280, canvas.parentElement.clientWidth);
+      height = Math.max(280, canvas.parentElement.clientHeight || width);
       canvas.width = width * dpr;
       canvas.height = height * dpr;
+      if (typeof ctx.resetTransform === 'function') {
+        ctx.resetTransform();
+      } else {
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+      }
       ctx.scale(dpr, dpr);
     };
+
     handleResize();
     window.addEventListener('resize', handleResize);
-
-    // Approximate continent shapes with spherical point clusters
-    const points: Point3D[] = [];
-    const totalPoints = 1400;
-
-    // Helper to determine if a lat/lon is landmass
-    const isLandmass = (lat: number, lon: number): boolean => {
-      // Indonesia & SE Asia (Lat: -11 to 25, Lon: 95 to 142)
-      if (lat >= -11 && lat <= 20 && lon >= 95 && lon <= 142) return true;
-      // East Asia (Lat: 20 to 55, Lon: 100 to 145)
-      if (lat >= 20 && lat <= 55 && lon >= 100 && lon <= 145) return true;
-      // Australia (Lat: -40 to -11, Lon: 113 to 154)
-      if (lat >= -40 && lat <= -11 && lon >= 113 && lon <= 154) return true;
-      // India / South Asia (Lat: 6 to 35, Lon: 68 to 92)
-      if (lat >= 6 && lat <= 35 && lon >= 68 && lon <= 92) return true;
-      // Europe (Lat: 36 to 65, Lon: -10 to 45)
-      if (lat >= 36 && lat <= 65 && lon >= -10 && lon <= 45) return true;
-      // Africa (Lat: -35 to 37, Lon: -18 to 51)
-      if (lat >= -35 && lat <= 37 && lon >= -18 && lon <= 51) return true;
-      // North America (Lat: 15 to 70, Lon: -168 to -52)
-      if (lat >= 15 && lat <= 70 && lon >= -168 && lon <= -52) return true;
-      // South America (Lat: -56 to 12, Lon: -81 to -34)
-      if (lat >= -56 && lat <= 12 && lon >= -81 && lon <= -34) return true;
-      return false;
-    };
-
-    // Generate points distributed across sphere
-    const goldenRatio = (1 + Math.sqrt(5)) / 2;
-    for (let i = 0; i < totalPoints; i++) {
-      const theta = (2 * Math.PI * i) / goldenRatio;
-      const phi = Math.acos(1 - (2 * (i + 0.5)) / totalPoints);
-      const lat = (Math.PI / 2 - phi) * (180 / Math.PI);
-      const lon = ((theta % (2 * Math.PI)) - Math.PI) * (180 / Math.PI);
-
-      const isLand = isLandmass(lat, lon);
-
-      // Only keep points with high probability if land, or low probability if ocean grid
-      if (isLand || Math.random() < 0.22) {
-        const x = Math.cos(phi - Math.PI / 2) * Math.sin(theta);
-        const y = Math.sin(phi - Math.PI / 2);
-        const z = Math.cos(phi - Math.PI / 2) * Math.cos(theta);
-        points.push({
-          lat,
-          lon,
-          x,
-          y,
-          z,
-          isLand,
-          baseRadius: isLand ? 1.4 : 0.75,
-        });
-      }
-    }
 
     // Coordinates:
     // Balikpapan (Origin)
@@ -112,46 +129,85 @@ export const ContinentalGlobeCanvas: React.FC<ContinentalGlobeCanvasProps> = ({
       };
     };
 
-    // Mouse drag handlers
-    const onMouseDown = (e: MouseEvent) => {
+    // Mouse & Touch Drag Handlers
+    const startDrag = (clientX: number, clientY: number) => {
       mouseRef.current.isDragging = true;
-      mouseRef.current.lastX = e.clientX;
-      mouseRef.current.lastY = e.clientY;
+      mouseRef.current.lastX = clientX;
+      mouseRef.current.lastY = clientY;
     };
 
-    const onMouseMove = (e: MouseEvent) => {
+    const moveDrag = (clientX: number, clientY: number) => {
       if (!mouseRef.current.isDragging) return;
-      const dx = e.clientX - mouseRef.current.lastX;
-      const dy = e.clientY - mouseRef.current.lastY;
-      rotRef.current.y += dx * 0.006;
-      rotRef.current.x = Math.max(-0.6, Math.min(0.6, rotRef.current.x + dy * 0.006));
-      mouseRef.current.lastX = e.clientX;
-      mouseRef.current.lastY = e.clientY;
+      const dx = clientX - mouseRef.current.lastX;
+      const dy = clientY - mouseRef.current.lastY;
+
+      if (!isNaN(dx) && !isNaN(dy)) {
+        rotRef.current.y += dx * 0.006;
+        rotRef.current.x = Math.max(-0.6, Math.min(0.6, rotRef.current.x + dy * 0.006));
+      }
+
+      mouseRef.current.lastX = clientX;
+      mouseRef.current.lastY = clientY;
     };
 
-    const onMouseUp = () => {
+    const endDrag = () => {
       mouseRef.current.isDragging = false;
     };
+
+    const onMouseDown = (e: MouseEvent) => startDrag(e.clientX, e.clientY);
+    const onMouseMove = (e: MouseEvent) => moveDrag(e.clientX, e.clientY);
+    const onMouseUp = () => endDrag();
+
+    const onTouchStart = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        startDrag(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        moveDrag(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
+    const onTouchEnd = () => endDrag();
 
     canvas.addEventListener('mousedown', onMouseDown);
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseup', onMouseUp);
 
+    canvas.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('touchend', onTouchEnd);
+
+    // Pause loop when off-screen to save battery and prevent context dropping
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    });
+    observer.observe(canvas);
+
     let animationId: number;
     let t = 0;
 
     const render = () => {
+      if (!isVisible) {
+        animationId = requestAnimationFrame(render);
+        return;
+      }
+
       ctx.clearRect(0, 0, width, height);
 
-      // Slow gentle auto-rotation when not dragging
+      // Auto rotation when not dragging
       if (!mouseRef.current.isDragging) {
         rotRef.current.y += 0.003;
       }
 
+      // Safeguard against NaN
+      if (isNaN(rotRef.current.y)) rotRef.current.y = -1.9;
+      if (isNaN(rotRef.current.x)) rotRef.current.x = 0.25;
+
       t += 0.03;
       const centerX = width / 2;
       const centerY = height / 2;
-      const radius = Math.min(width, height) * 0.4;
+      const radius = Math.min(width, height) * 0.38;
 
       const cosY = Math.cos(rotRef.current.y);
       const sinY = Math.sin(rotRef.current.y);
@@ -159,10 +215,8 @@ export const ContinentalGlobeCanvas: React.FC<ContinentalGlobeCanvasProps> = ({
       const sinX = Math.sin(rotRef.current.x);
 
       const project = (p3: { x: number; y: number; z: number }) => {
-        // Rotate Y
         const x1 = p3.x * cosY - p3.z * sinY;
         const z1 = p3.z * cosY + p3.x * sinY;
-        // Rotate X
         const y2 = p3.y * cosX - z1 * sinX;
         const z2 = z1 * cosX + p3.y * sinX;
 
@@ -173,46 +227,42 @@ export const ContinentalGlobeCanvas: React.FC<ContinentalGlobeCanvasProps> = ({
         };
       };
 
-      // Draw faint outer boundary circle
+      // 1. Draw boundary circle
       ctx.beginPath();
       ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
       ctx.strokeStyle = 'rgba(242, 242, 238, 0.08)';
       ctx.lineWidth = 1;
       ctx.stroke();
 
-      // Draw dashed equator
-      ctx.beginPath();
-      ctx.ellipse(centerX, centerY, radius, radius * Math.sin(rotRef.current.x), 0, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(242, 242, 238, 0.04)';
-      ctx.setLineDash([3, 5]);
-      ctx.stroke();
-      ctx.setLineDash([]);
+      // 2. Draw dashed equator
+      const eqY = Math.abs(Math.sin(rotRef.current.x));
+      if (!isNaN(eqY)) {
+        ctx.beginPath();
+        ctx.ellipse(centerX, centerY, radius, radius * eqY, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(242, 242, 238, 0.05)';
+        ctx.setLineDash([3, 5]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
 
-      // Project all points
-      const projected = points.map((p) => {
+      // 3. Render spherical land points
+      for (let i = 0; i < STATIC_POINTS.length; i++) {
+        const p = STATIC_POINTS[i];
         const pt = project(p);
-        return {
-          ...pt,
-          isLand: p.isLand,
-          baseRadius: p.baseRadius,
-        };
-      });
 
-      // Render points (only visible on hemisphere z > 0)
-      for (const p of projected) {
-        if (p.z <= -0.05) continue;
-        const alpha = Math.max(0.1, (p.z + 0.1) * (p.isLand ? 0.95 : 0.35));
+        if (pt.z <= -0.05 || isNaN(pt.x) || isNaN(pt.y)) continue;
+        const alpha = Math.max(0.12, (pt.z + 0.1) * (p.isLand ? 0.95 : 0.35));
         const dotSize = p.baseRadius * (p.isLand ? 1.3 : 0.85);
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, dotSize, 0, Math.PI * 2);
+        ctx.arc(pt.x, pt.y, dotSize, 0, Math.PI * 2);
         ctx.fillStyle = p.isLand
           ? `rgba(242, 242, 238, ${alpha})`
           : `rgba(242, 242, 238, ${alpha * 0.4})`;
         ctx.fill();
       }
 
-      // Draw Journey Arc between Balikpapan and Surabaya
+      // 4. Draw Journey Arc between Balikpapan and Surabaya
       const bpn3D = to3D(BPN.lat, BPN.lon, 1.0);
       const sub3D = to3D(SUB.lat, SUB.lon, 1.0);
 
@@ -221,68 +271,72 @@ export const ContinentalGlobeCanvas: React.FC<ContinentalGlobeCanvasProps> = ({
 
       for (let i = 0; i <= numArcPoints; i++) {
         const f = i / numArcPoints;
-        // Spherical linear interpolation with parabolic altitude hump
-        const alt = 1.0 + Math.sin(f * Math.PI) * 0.14; // altitude arc
+        const alt = 1.0 + Math.sin(f * Math.PI) * 0.14;
         const ix = bpn3D.x + (sub3D.x - bpn3D.x) * f;
         const iy = bpn3D.y + (sub3D.y - bpn3D.y) * f;
         const iz = bpn3D.z + (sub3D.z - bpn3D.z) * f;
         const len = Math.hypot(ix, iy, iz);
-        const normX = (ix / len) * alt;
-        const normY = (iy / len) * alt;
-        const normZ = (iz / len) * alt;
-
-        arcPoints.push(project({ x: normX, y: normY, z: normZ }));
+        if (len > 0) {
+          const normX = (ix / len) * alt;
+          const normY = (iy / len) * alt;
+          const normZ = (iz / len) * alt;
+          arcPoints.push(project({ x: normX, y: normY, z: normZ }));
+        }
       }
 
-      // Render dashed arc
-      ctx.beginPath();
-      let started = false;
-      const visibleArcCount = Math.floor(numArcPoints * progress);
+      // Render dashed emerald trajectory arc
+      const curProgress = Math.max(0, Math.min(1, progressRef.current));
+      const visibleArcCount = Math.floor(numArcPoints * curProgress);
 
-      for (let i = 0; i <= visibleArcCount; i++) {
-        const pt = arcPoints[i];
-        if (pt.z > -0.1) {
-          if (!started) {
-            ctx.moveTo(pt.x, pt.y);
-            started = true;
+      if (arcPoints.length > 0 && visibleArcCount > 0) {
+        ctx.beginPath();
+        let started = false;
+
+        for (let i = 0; i <= visibleArcCount && i < arcPoints.length; i++) {
+          const pt = arcPoints[i];
+          if (pt.z > -0.1 && !isNaN(pt.x) && !isNaN(pt.y)) {
+            if (!started) {
+              ctx.moveTo(pt.x, pt.y);
+              started = true;
+            } else {
+              ctx.lineTo(pt.x, pt.y);
+            }
           } else {
-            ctx.lineTo(pt.x, pt.y);
+            started = false;
           }
-        } else {
-          started = false;
+        }
+
+        ctx.strokeStyle = '#22c55e';
+        ctx.lineWidth = 1.6;
+        ctx.setLineDash([4, 4]);
+        ctx.lineDashOffset = -t * 12;
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Traveling data light packet along arc
+        if (visibleArcCount > 2) {
+          const packetIdx = Math.floor((t * 8) % visibleArcCount);
+          const packetPt = arcPoints[packetIdx];
+          if (packetPt && packetPt.z > 0 && !isNaN(packetPt.x) && !isNaN(packetPt.y)) {
+            ctx.beginPath();
+            ctx.arc(packetPt.x, packetPt.y, 3.5, 0, Math.PI * 2);
+            ctx.fillStyle = '#f2f2ee';
+            ctx.shadowColor = '#22c55e';
+            ctx.shadowBlur = 8;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+          }
         }
       }
 
-      ctx.strokeStyle = '#22c55e';
-      ctx.lineWidth = 1.6;
-      ctx.setLineDash([4, 4]);
-      ctx.lineDashOffset = -t * 12;
-      ctx.stroke();
-      ctx.setLineDash([]);
-
-      // Traveling data packet along arc
-      if (visibleArcCount > 2) {
-        const packetIdx = Math.floor((t * 8) % visibleArcCount);
-        const packetPt = arcPoints[packetIdx];
-        if (packetPt && packetPt.z > 0) {
-          ctx.beginPath();
-          ctx.arc(packetPt.x, packetPt.y, 3, 0, Math.PI * 2);
-          ctx.fillStyle = '#f2f2ee';
-          ctx.shadowColor = '#22c55e';
-          ctx.shadowBlur = 8;
-          ctx.fill();
-          ctx.shadowBlur = 0;
-        }
-      }
-
-      // Draw Marker Function (Target square radar box with coordinates)
+      // 5. Draw Marker Function
       const drawMarker = (
         p3D: { x: number; y: number; z: number },
         label: string,
         isOrigin: boolean
       ) => {
         const pt = project(p3D);
-        if (pt.z <= 0.05) return;
+        if (pt.z <= 0.05 || isNaN(pt.x) || isNaN(pt.y)) return;
 
         const pulseSize = 4 + (Math.sin(t * 3) + 1) * 3;
 
@@ -317,12 +371,16 @@ export const ContinentalGlobeCanvas: React.FC<ContinentalGlobeCanvasProps> = ({
 
     return () => {
       cancelAnimationFrame(animationId);
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
       canvas.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mouseup', onMouseUp);
+      canvas.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchend', onTouchEnd);
     };
-  }, [progress]);
+  }, []);
 
   return (
     <canvas

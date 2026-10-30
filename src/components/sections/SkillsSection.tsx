@@ -1,7 +1,7 @@
 import React from 'react';
 import { skillsGridData } from '../../data/skills';
 import { RevealWrapper } from '../ui/RevealWrapper';
-import { ProximityText } from '../ui/ProximityText';
+import { MaskedHeading } from '../ui/MaskedHeading';
 
 export const SkillsSection: React.FC = () => {
   const totalSkillsCount = skillsGridData.reduce(
@@ -15,13 +15,14 @@ export const SkillsSection: React.FC = () => {
       className="relative py-24 px-6 md:px-12 border-b border-[rgba(242,242,238,0.1)] bg-[#050505] font-mono select-none"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Header Section (Exactly as in Reference Screenshot) */}
+        {/* Header Section (Exactly as in Reference Screenshot with Masked Reveal) */}
         <div className="mb-10 flex items-end justify-between gap-6 pb-2">
-          <h2 className="font-display font-light text-6xl sm:text-7xl md:text-8xl text-[#f2f2ee] tracking-tight uppercase">
-            <ProximityText minWeight={150} maxWeight={850} radius={260}>
-              SKILLS
-            </ProximityText>
-          </h2>
+          <MaskedHeading
+            as="h2"
+            className="font-display font-light text-6xl sm:text-7xl md:text-8xl text-[#f2f2ee] tracking-tight uppercase"
+          >
+            SKILLS
+          </MaskedHeading>
 
           <p className="font-mono text-xs uppercase tracking-widest text-[#8a8a86] pb-2">
             STACK · {totalSkillsCount}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapPin, CheckCircle } from 'lucide-react';
 import { experienceData } from '../../data/experience';
-import { KineticText } from '../ui/KineticText';
+import { MaskedHeading } from '../ui/MaskedHeading';
 import { RevealWrapper } from '../ui/RevealWrapper';
 
 export const ExperienceSection: React.FC = () => {
@@ -14,12 +14,12 @@ export const ExperienceSection: React.FC = () => {
             <span className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-3 block">
               05 // TRACK RECORD
             </span>
-            <h2 className="font-display font-light text-5xl md:text-7xl uppercase text-[#f2f2ee] tracking-tight">
-              <KineticText>CAREER JOURNEY</KineticText> <br />
-              <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#f2f2ee] to-[#8a8a86]">
-                <KineticText delay={0.2}>&amp; RESPONSIBILITIES</KineticText>
-              </span>
-            </h2>
+            <MaskedHeading
+              as="h2"
+              className="font-display font-light text-5xl md:text-7xl uppercase text-[#f2f2ee] tracking-tight"
+            >
+              CAREER JOURNEY &amp; RESPONSIBILITIES
+            </MaskedHeading>
           </div>
           <p className="font-mono text-xs md:text-sm text-[#8a8a86] max-w-md">
             Proven history of delivering rock-solid network uptime, secure VPN tunnels, and high-velocity web platforms.

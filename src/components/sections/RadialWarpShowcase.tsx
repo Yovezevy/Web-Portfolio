@@ -5,6 +5,7 @@ import { HalftoneGlobeCanvas } from '../ui/HalftoneGlobeCanvas';
 import { Shield, Network, BookOpen } from 'lucide-react';
 import { ProximityText } from '../ui/ProximityText';
 import { RevealWrapper } from '../ui/RevealWrapper';
+import { MaskedHeading } from '../ui/MaskedHeading';
 
 interface Pillar {
   number: string;
@@ -65,9 +66,12 @@ export const RadialWarpShowcase: React.FC = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <span>CORE ARCHITECTURES & SYSTEMS</span>
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#f2f2ee] uppercase tracking-tight">
+            <MaskedHeading
+              as="h2"
+              className="font-display text-4xl sm:text-5xl md:text-6xl text-[#f2f2ee] uppercase tracking-tight"
+            >
               ENGINEERING PILLARS
-            </h2>
+            </MaskedHeading>
           </div>
           <p className="text-xs text-[#8a8a86] max-w-sm tracking-wide">
             SCROLL TO EXPLORE INFRASTRUCTURE CAPABILITIES, NETWORK SIMULATIONS, AND PUBLISHED AUTHORSHIPS.

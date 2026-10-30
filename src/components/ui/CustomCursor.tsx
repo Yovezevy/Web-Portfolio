@@ -82,20 +82,28 @@ export const CustomCursor: React.FC = () => {
         transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
       }}
     >
-      {/* Immediate Tracking Center Dot */}
+      {/* Immediate Tracking Center Dot & Morphing Badge */}
       <div
-        className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full transition-transform duration-150 ${
+        className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-200 ease-out flex items-center justify-center ${
           cursorText
-            ? 'w-16 h-16 bg-[#f2f2ee] text-[#050505] flex items-center justify-center text-[10px] font-bold tracking-widest uppercase shadow-2xl scale-100'
+            ? 'w-[84px] h-[84px] bg-[#f2f2ee] text-[#050505] shadow-[0_0_35px_rgba(242,242,238,0.25)] scale-100'
             : isPointer
             ? 'w-10 h-10 border border-emerald-400 bg-emerald-400/20 backdrop-blur-xs scale-100'
             : 'w-2 h-2 bg-emerald-400 scale-100'
         }`}
       >
         {cursorText && (
-          <span className="animate-in fade-in zoom-in-50 duration-150">
-            {cursorText}
-          </span>
+          <div className="flex flex-col items-center justify-center text-center px-1 font-bold text-[10px] tracking-wider uppercase leading-[1.15] select-none text-[#050505]">
+            {cursorText.includes(' ') ? (
+              cursorText.split(' ').map((word, i) => (
+                <span key={i} className="block whitespace-nowrap">
+                  {word}
+                </span>
+              ))
+            ) : (
+              <span>{cursorText}</span>
+            )}
+          </div>
         )}
       </div>
 
@@ -108,11 +116,13 @@ export const CustomCursor: React.FC = () => {
         />
       )}
 
-      {/* Technical Coordinates Indicator */}
-      <div className="absolute left-4 top-4 text-[9px] text-[#52524e] tracking-widest whitespace-nowrap hidden sm:block select-none">
-        <span>X:{Math.round(position.x)}</span>{' '}
-        <span>Y:{Math.round(position.y)}</span>
-      </div>
+      {/* Technical Coordinates Indicator (Shifted away so it never overlaps the badge) */}
+      {!cursorText && (
+        <div className="absolute left-4 top-4 text-[9px] text-[#52524e] tracking-widest whitespace-nowrap hidden sm:block select-none">
+          <span>X:{Math.round(position.x)}</span>{' '}
+          <span>Y:{Math.round(position.y)}</span>
+        </div>
+      )}
     </div>
   );
 };

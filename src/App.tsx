@@ -10,6 +10,7 @@ import { CommandPalette } from './components/ui/CommandPalette';
 import { CustomCursor } from './components/ui/CustomCursor';
 import { ScrollToTop } from './components/layout/ScrollToTop';
 import { FloatingBackToTop } from './components/ui/FloatingBackToTop';
+import { AssistantPill } from './components/ui/AssistantPill';
 import { useDynamicTabTitle } from './hooks/useDynamicTabTitle';
 
 import { HomePage } from './pages/HomePage';
@@ -85,6 +86,9 @@ export const App: React.FC = () => {
 
             {/* Floating Back To Top Button [↑] */}
             <FloatingBackToTop />
+
+            {/* Floating [MI] ASSISTANT Pill (Matching Christen Dijoux [CD] Assistant) */}
+            <AssistantPill onOpenTerminal={() => setTerminalOpen(true)} />
           </div>
         </SmoothScroll>
       </BrowserRouter>
