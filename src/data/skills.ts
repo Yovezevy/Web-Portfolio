@@ -1,111 +1,137 @@
 import type { SkillCategory } from './types';
 
+export interface SkillGridCategory {
+  title: string;
+  titleEn: string;
+  chips: string[];
+}
+
 /**
- * FILE DAFTAR KEAHLIAN TEKNIS - MUHAMMAD IHSAN MALARANGENG
+ * 6 Kategori Keahlian Teknis - Tampilan Bento Grid (Identik Christen Dijoux)
  */
-export const skillsData: SkillCategory[] = [
+export const skillsGridData: SkillGridCategory[] = [
   {
-    title: "Cisco Routing & Switching",
-    icon: "Network",
-    skills: [
-      {
-        name: "Enterprise Dynamic Routing",
-        level: "Advanced (CCNA / CCNP Level)",
-        tags: ["BGP Peering", "BGP Route Reflector", "OSPF Multi-Area", "EIGRP Redistribution", "BGP Community"]
-      },
-      {
-        name: "Advanced L2/L3 Switching",
-        level: "Expert",
-        tags: ["VLAN & Inter-VLAN", "802.1Q Trunking", "STP / RSTP", "Etherchannel (LACP/PAgP)", "Port Security"]
-      },
-      {
-        name: "Gateway Redundancy & NAT",
-        level: "Advanced",
-        tags: ["HSRP", "VRRP", "GLBP", "NAT Static/Dynamic/Overload", "GRE Tunnels"]
-      },
-      {
-        name: "Access Control & Filtering",
-        level: "Advanced",
-        tags: ["Standard & Extended ACL", "Prefix Lists", "Route Maps", "Distribute Lists", "MD5 Authentication"]
-      }
+    title: "ROUTING & SWITCHING",
+    titleEn: "Routing & Switching",
+    chips: [
+      "BGP PEERING",
+      "BGP ROUTE REFLECTOR",
+      "OSPF MULTI-AREA",
+      "EIGRP REDISTRIBUTION",
+      "VLAN & INTER-VLAN",
+      "802.1Q TRUNKING",
+      "STP / RSTP",
+      "ETHERCHANNEL (LACP)",
+      "HSRP / VRRP",
+      "EXTENDED ACL",
+      "ROUTE MAPS",
+      "GRE TUNNELS",
+      "NAT OVERLOAD",
+      "PREFIX LISTS"
     ]
   },
   {
-    title: "MikroTik RouterOS",
-    icon: "Server",
-    skills: [
-      {
-        name: "Routing & Multi-WAN Failover",
-        level: "Certified MTCRE",
-        tags: ["OSPF Routing", "BGP", "Check Gateway Failover", "PCC Load Balancing", "Routing Mark"]
-      },
-      {
-        name: "Bandwidth Management & QoS",
-        level: "Expert",
-        tags: ["Queue Tree", "Simple Queue with Burst", "PCQ (Per Connection Queue)", "Packet Mangle"]
-      },
-      {
-        name: "Firewall & Security Filtering",
-        level: "Advanced",
-        tags: ["Filter Rules", "NAT", "Layer 7 Protocol", "Transparent DNS", "Walled Garden", "Address Lists"]
-      },
-      {
-        name: "VPN, Tunnels & Hotspots",
-        level: "Certified MTCNA",
-        tags: ["EoIP", "GRE", "L2TP / IPsec", "PPPoE Server", "Hotspot Captive Portal", "User Manager"]
-      }
+    title: "MIKROTIK ROUTEROS",
+    titleEn: "MikroTik RouterOS",
+    chips: [
+      "MTCRE CERTIFIED",
+      "MTCNA CERTIFIED",
+      "OSPF ROUTING",
+      "CHECK GATEWAY FAILOVER",
+      "PCC LOAD BALANCING",
+      "QUEUE TREE QOS",
+      "SIMPLE QUEUE BURST",
+      "PCQ (PER CONNECTION)",
+      "FIREWALL FILTER",
+      "LAYER 7 PROTOCOL",
+      "L2TP / IPSEC",
+      "EOIP TUNNELS",
+      "HOTSPOT CAPTIVE PORTAL",
+      "ROUTING MARK"
     ]
   },
   {
-    title: "Fortinet & Network Security",
-    icon: "Shield",
-    skills: [
-      {
-        name: "FortiGate Firewall Administration",
-        level: "Certified FCA / FCF",
-        tags: ["Security Fabric", "Firewall Policies", "High Availability (HA)", "FortiView", "Session Monitoring"]
-      },
-      {
-        name: "Secure SD-WAN & Remote Access",
-        level: "Proficient",
-        tags: ["SD-WAN Deployment", "IPsec VPN", "SSL VPN", "User Authentication", "Zero Trust Access"]
-      },
-      {
-        name: "SIEM & Threat Monitoring",
-        level: "Hands-on Experience",
-        tags: ["Wazuh SIEM (Windows Server)", "FortiAnalyzer", "IPS & Application Control", "Antivirus / Web Filter"]
-      },
-      {
-        name: "Cybersecurity & CTF",
-        level: "Top 6 Compfest CTF",
-        tags: ["Classical Cryptography", "Threat Intelligence", "Ethical Hacking", "Merdeka Siber"]
-      }
+    title: "CYBERSECURITY & FIREWALL",
+    titleEn: "Cybersecurity & Firewall",
+    chips: [
+      "FORTIGATE UTM",
+      "FCA & FCF CERTIFIED",
+      "SECURITY FABRIC",
+      "HIGH AVAILABILITY (HA)",
+      "SECURE SD-WAN",
+      "IPSEC VPN",
+      "SSL VPN",
+      "WAZUH SIEM",
+      "WINDOWS SERVER SIEM",
+      "CTF TOP 6 WINNER",
+      "CLASSICAL CRYPTOGRAPHY",
+      "THREAT ISOLATION",
+      "IPS & APP CONTROL"
     ]
   },
   {
-    title: "Systems, Cloud & Tools",
-    icon: "Activity",
-    skills: [
-      {
-        name: "Linux Administration & Mail Server",
-        level: "Experienced",
-        tags: ["Debian / Ubuntu", "Zimbra Mail Server (Virtual Linux)", "Bash Scripting", "System Services"]
-      },
-      {
-        name: "Cloud Platforms & DevOps",
-        level: "JuaraGCP Season 9 & 10",
-        tags: ["Google Cloud Platform (GCP)", "AWS Cloud", "Docker Containers", "DevOps Fundamentals"]
-      },
-      {
-        name: "Network Simulation & Lab Topology",
-        level: "Expert",
-        tags: ["PNETLab VM", "Cisco Packet Tracer", "GNS3", "Wireshark Packet Analysis"]
-      },
-      {
-        name: "Technical Authoring & Training",
-        level: "Author of 5 Books",
-        tags: ["Published Author", "Classroom Instructor", "Technical Curriculum Design", "Public Speaking"]
-      }
+    title: "CLOUD & DEVOPS",
+    titleEn: "Cloud & DevOps",
+    chips: [
+      "GOOGLE CLOUD (GCP)",
+      "#JUARAGCP (S9 & S10)",
+      "AWS CLOUD",
+      "DOCKER CONTAINERS",
+      "LINUX DEBIAN / UBUNTU",
+      "ZIMBRA MAIL SERVER",
+      "BASH SCRIPTING",
+      "VIRTUALBOX / PROXMOX",
+      "CI/CD PIPELINES",
+      "GITHUB ACTIONS",
+      "DNS MANAGEMENT",
+      "SSL / TLS"
+    ]
+  },
+  {
+    title: "OBSERVABILITY & TOOLS",
+    titleEn: "Observability & Tools",
+    chips: [
+      "WIRESHARK ANALYSIS",
+      "CISCO PACKET TRACER",
+      "GNS3 / EVE-NG",
+      "WINBOX",
+      "NETFLOW / SFLOW",
+      "SNMP MONITORING",
+      "WAZUH AGENT TELEMETRY",
+      "ICMP EDGE PROBING",
+      "SPEEDTEST CLI",
+      "VLSM SUBNETTING"
+    ]
+  },
+  {
+    title: "WEB & CODE RUNTIMES",
+    titleEn: "Web & Code Runtimes",
+    chips: [
+      "REACT",
+      "TYPESCRIPT",
+      "NEXT.JS",
+      "NODE.JS",
+      "TAILWIND CSS",
+      "JAVASCRIPT ES6+",
+      "PYTHON",
+      "REST API",
+      "THREE.JS & WEBGL",
+      "GIT / GITHUB",
+      "HTML5 & CSS3",
+      "LINUX RUNTIMES"
     ]
   }
 ];
+
+/**
+ * Backward-compatible data for CvPage.tsx and other consumers
+ */
+export const skillsData: SkillCategory[] = skillsGridData.map((grid) => ({
+  title: grid.title,
+  icon: "Network",
+  skills: grid.chips.map((chip) => ({
+    name: chip,
+    level: "Advanced",
+    tags: [chip]
+  }))
+}));

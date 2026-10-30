@@ -59,6 +59,53 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
+/* Crosshair intersection corner markers (exact Christen Dijoux design) */
+.crosshair {
+  position: relative;
+}
+.crosshair::before,
+.crosshair::after {
+  content: "+";
+  position: absolute;
+  font-family: 'Geist Mono', monospace;
+  font-size: 14px;
+  line-height: 1;
+  color: rgba(242, 242, 238, 0.45);
+  pointer-events: none;
+  z-index: 10;
+}
+.crosshair::before {
+  top: -7px;
+  left: -5px;
+}
+.crosshair::after {
+  bottom: -7px;
+  right: -5px;
+}
+
+/* Technical Skill Chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(242, 242, 238, 0.14);
+  background-color: rgba(242, 242, 238, 0.02);
+  padding: 0.28rem 0.65rem;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(242, 242, 238, 0.82);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.chip:hover {
+  border-color: #f2f2ee;
+  background-color: #f2f2ee;
+  color: #050505;
+  transform: translateY(-1px);
+}
+
 /* Text outline effect for manifesto ticker */
 .text-outline {
   -webkit-text-stroke: 1.5px rgba(242, 242, 238, 0.4);
