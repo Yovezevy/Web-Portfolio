@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Terminal, Sparkles, CheckCircle2 } from 'lucide-react';
 import { TopologyCanvas } from '../ui/TopologyCanvas';
 import { labExperiments } from '../../data/lab';
+import { MaskedHeading } from '../ui/MaskedHeading';
 
 interface LabSectionProps {
   onOpenTerminal: () => void;
@@ -32,12 +33,15 @@ export const LabSection: React.FC<LabSectionProps> = ({ onOpenTerminal }) => {
               <Sparkles className="w-4 h-4" />
               <span>03 // THE LAB &amp; EXPERIMENTS</span>
             </div>
-            <h2 className="font-display font-light text-5xl md:text-7xl uppercase text-[#f2f2ee] tracking-tight">
-              SYSTEMS DISSECTED <br />
-              <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-[#f2f2ee]">
-                LIVE IN THE BROWSER
-              </span>
-            </h2>
+            <MaskedHeading
+              as="h2"
+              className="font-display font-light text-5xl md:text-7xl uppercase text-[#f2f2ee] tracking-tight block"
+            >
+              SYSTEMS DISSECTED
+            </MaskedHeading>
+            <div className="font-display font-extrabold text-5xl md:text-7xl uppercase text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-[#f2f2ee] tracking-tight">
+              LIVE IN THE BROWSER
+            </div>
           </div>
           <p className="font-mono text-xs md:text-sm text-[#8a8a86] max-w-md">
             Interactive prototypes, network topology simulators, and honest component autopsies inspired by creative coding.

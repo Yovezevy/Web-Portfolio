@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExternalLink, Code2, ArrowUpRight, ArrowRight } from 'lucide-react';
 import { projectsData } from '../../data/projects';
 import { useLanguage } from '../../context/LanguageContext';
-import { KineticText } from '../ui/KineticText';
+import { MaskedHeading } from '../ui/MaskedHeading';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,12 +61,15 @@ export const HorizontalProjectsSection: React.FC = () => {
           <span className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-3 block">
             {t('projTag')}
           </span>
-          <h2 className="font-display font-light text-5xl md:text-7xl uppercase text-[#f2f2ee] tracking-tight">
-            <KineticText>{t('projTitle1')}</KineticText> <br />
-            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#f2f2ee] via-emerald-300 to-[#8a8a86]">
-              <KineticText>{t('projTitle2')}</KineticText>
-            </span>
-          </h2>
+          <MaskedHeading
+            as="h2"
+            className="font-display font-light text-5xl md:text-7xl uppercase text-[#f2f2ee] tracking-tight block"
+          >
+            SELECTED ARCHITECTURE
+          </MaskedHeading>
+          <div className="font-display font-extrabold text-5xl md:text-7xl uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#f2f2ee] via-emerald-300 to-[#8a8a86] tracking-tight">
+            &amp; SYSTEMS WORK
+          </div>
         </div>
         <div className="flex flex-col items-start md:items-end gap-2 font-mono text-xs text-[#8a8a86]">
           <span className="hidden md:block">HORIZONTAL EXPLORATION // PIN_SCROLL</span>

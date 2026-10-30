@@ -3,6 +3,7 @@ import { Network, Code2, Activity, ArrowUpRight } from 'lucide-react';
 import { profileData } from '../../data/profile';
 import { RevealWrapper } from '../ui/RevealWrapper';
 import { ProximityText } from '../ui/ProximityText';
+import { MaskedHeading } from '../ui/MaskedHeading';
 
 export const AboutSection: React.FC = () => {
   const pillars = [
@@ -38,16 +39,17 @@ export const AboutSection: React.FC = () => {
             <span className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-3 block">
               01 // CORE PHILOSOPHY
             </span>
-            <h2 className="font-display font-light text-5xl md:text-7xl uppercase text-[#f2f2ee] tracking-tight">
-              <ProximityText minWeight={180} maxWeight={850} radius={260}>
-                FROM ROUTING TABLES
-              </ProximityText> <br />
-              <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#f2f2ee] to-[#8a8a86]">
-                <ProximityText minWeight={350} maxWeight={900} radius={260}>
-                  TO BROWSER RUNTIMES
-                </ProximityText>
-              </span>
-            </h2>
+            <MaskedHeading
+              as="h2"
+              className="font-display font-light text-5xl md:text-7xl uppercase text-[#f2f2ee] tracking-tight block"
+            >
+              FROM ROUTING TABLES
+            </MaskedHeading>
+            <div className="font-display font-extrabold text-5xl md:text-7xl uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#f2f2ee] to-[#8a8a86]">
+              <ProximityText minWeight={350} maxWeight={900} radius={260}>
+                TO BROWSER RUNTIMES
+              </ProximityText>
+            </div>
           </div>
           <p className="font-mono text-xs md:text-sm text-[#8a8a86] max-w-md leading-relaxed">
             Networks and web applications are two sides of the same coin: one routes the packets, the other renders the value.

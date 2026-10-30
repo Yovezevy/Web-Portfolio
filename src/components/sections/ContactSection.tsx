@@ -4,6 +4,7 @@ import { profileData } from '../../data/profile';
 import { useLanguage } from '../../context/LanguageContext';
 import { RevealWrapper } from '../ui/RevealWrapper';
 import { ProximityText } from '../ui/ProximityText';
+import { MaskedHeading } from '../ui/MaskedHeading';
 
 export const ContactSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -35,16 +36,17 @@ export const ContactSection: React.FC = () => {
           <span className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-3 block">
             {t('contactTag')}
           </span>
-          <h2 className="font-display font-light text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase text-[#f2f2ee] tracking-tight leading-[0.88]">
-            <ProximityText minWeight={150} maxWeight={900} radius={320}>
-              {t('contactTitle1')}
-            </ProximityText> <br />
-            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-[#f2f2ee] to-[#8a8a86]">
-              <ProximityText minWeight={350} maxWeight={900} radius={320}>
-                {t('contactTitle2')}
-              </ProximityText>
-            </span>
-          </h2>
+          <MaskedHeading
+            as="h2"
+            className="font-display font-light text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase text-[#f2f2ee] tracking-tight leading-[0.88] block"
+          >
+            INITIATE CONNECTION
+          </MaskedHeading>
+          <div className="font-display font-extrabold text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-[#f2f2ee] to-[#8a8a86] tracking-tight leading-[0.88]">
+            <ProximityText minWeight={350} maxWeight={900} radius={320}>
+              DISCUSS INFRASTRUCTURE
+            </ProximityText>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

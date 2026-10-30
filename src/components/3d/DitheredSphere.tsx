@@ -19,8 +19,8 @@ export const DitheredSphere: React.FC<DitheredSphereProps> = ({ className = '' }
 
     // Scene, Camera, Renderer
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(46, width / height, 0.1, 1000);
-    camera.position.z = 4.4;
+    const camera = new THREE.PerspectiveCamera(44, width / height, 0.1, 1000);
+    camera.position.z = 5.2;
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
@@ -173,10 +173,10 @@ export const DitheredSphere: React.FC<DitheredSphereProps> = ({ className = '' }
       mouseX += (targetX - mouseX) * 0.05;
       mouseY += (targetY - mouseY) * 0.05;
 
-      group.position.x = mouseX * 0.4;
-      group.position.y = -mouseY * 0.4;
-      group.rotation.y += mouseX * 0.04;
-      group.rotation.x += mouseY * 0.04;
+      group.position.x = mouseX * 0.2;
+      group.position.y = -mouseY * 0.2;
+      group.rotation.y += mouseX * 0.03;
+      group.rotation.x += mouseY * 0.03;
 
       renderer.render(scene, camera);
     };

@@ -22,7 +22,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal }) => {
       {/* Background Engineering Blueprint Gradient Mask */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#05050500_20%,#050505_90%)] pointer-events-none z-0" />
       {/* Background 3D Dithered Sphere Canvas - Centered and inset away from right border */}
-      <div className="absolute right-2 sm:right-6 md:right-12 lg:right-20 xl:right-28 top-1/2 -translate-y-1/2 w-full max-w-[520px] md:max-w-[620px] aspect-square opacity-40 md:opacity-85 pointer-events-none z-0">
+      <div className="absolute right-2 sm:right-4 md:right-8 lg:right-14 xl:right-20 top-1/2 -translate-y-1/2 w-full max-w-[460px] md:max-w-[560px] aspect-square opacity-40 md:opacity-85 pointer-events-none z-0">
         <DitheredSphere />
       </div>
 
