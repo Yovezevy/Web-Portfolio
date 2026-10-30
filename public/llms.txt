@@ -1,0 +1,32 @@
+# Muhammad Ihsan Malarangeng — Network Engineer & Computer Engineering Student
+
+> Computer Engineering student at Institut Teknologi Sepuluh Nopember (ITS) specializing in multi-vendor routing & switching (Cisco, MikroTik, Fortinet), enterprise network security, and SIEM deployment. Author of 5 published technical textbooks on Cisco, MikroTik, and AWS.
+
+## Profile
+- Name: Muhammad Ihsan Malarangeng
+- Role: Junior Network Engineer & Computer Engineering Student @ ITS
+- Location: Surabaya & Balikpapan, Indonesia
+- Email: sann252101@gmail.com
+- Contact: +6282255176697
+- Portfolio: https://its.id/Portofolio_Ihsan
+
+## Core Certifications
+- Cisco Certified Network Associate (CCNA 200-301) #478915238
+- Fortinet Certified Associate (FCA) #2338830402MI
+- Fortinet Certified Fundamental (FCF) #9586998811MI
+- MikroTik Certified Routing Engineer (MTCRE) #2302RE3845
+- MikroTik Certified Network Associate (MTCNA) #2404NA1557
+- Network Security Expert (NSE 1 & 2)
+
+## Published Books (772 Total Pages)
+1. Path Of Cisco #2 - CCNP (254 Pages, Dec 2023)
+2. Path Of Cisco - CCNA (117 Pages, June 2023)
+3. Path Of MikroTik #2 - MTCRE (77 Pages, Nov 2022)
+4. Path Of MikroTik - MTCNA (199 Pages, Nov 2022)
+5. Amazon With Saturn - AWS (125 Pages, April 2024)
+
+## Core Technical Competencies
+- Cisco: BGP Peering & Route Reflectors, OSPF Multi-Area, EIGRP Redistribution, VLANs, Trunking, Etherchannel, STP, HSRP/VRRP, GRE Tunnels, ACLs.
+- MikroTik: Queue Tree QoS, PCQ Bandwidth Shaper, Check Gateway Dual-ISP Failover, OSPF, EoIP/L2TP/IPsec, Firewall Mangle, Hotspot Captive Portal.
+- Fortinet & Security: FortiGate UTM, Security Fabric, High Availability (HA), SD-WAN, FortiView, Wazuh SIEM on Windows Server.
+- Cloud & Systems: Linux Administration, Zimbra Mail Server, Google Cloud Platform (#JuaraGCP Season 9 & 10), PNETLab VM.

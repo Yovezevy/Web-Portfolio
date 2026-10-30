@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="12" fill="#050505" stroke="rgba(242, 242, 238, 0.2)" stroke-width="2"/>
+  
+  <!-- Monogram Letters M and I -->
+  <text x="14" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Geist', 'Segoe UI', monospace" font-size="30" font-weight="900" fill="#f2f2ee" letter-spacing="-1">M</text>
+  <text x="39" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Geist', 'Segoe UI', monospace" font-size="30" font-weight="900" fill="#22c55e" letter-spacing="-1">I</text>
+  
+  <!-- Glowing Emerald Router Status Node -->
+  <circle cx="50" cy="14" r="4.5" fill="#22c55e" />
+  <circle cx="50" cy="14" r="7" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.4" />
+</svg>
