@@ -1,23 +1,28 @@
-import React from 'react';
-import { ArrowLeft, Printer, Mail, Globe, MapPin, CheckCircle, ShieldCheck, BookOpen, Trophy } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowLeft, Printer, Mail, Globe, MapPin, CheckCircle, ShieldCheck, BookOpen, Trophy, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { profileData } from '../data/profile';
 import { experienceData } from '../data/experience';
 import { skillsData } from '../data/skills';
+import { certificatesData } from '../data/certificates';
+import type { Certificate } from '../data/certificates';
+import { CertificateModal } from '../components/ui/CertificateModal';
 
 export const CvPage: React.FC = () => {
+  const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
+
   const handlePrint = () => {
     window.print();
   };
 
   const certifications = [
-    { title: "Cisco Certified Network Associate (CCNA 200-301)", issuer: "Cisco Systems", id: "#478915238", period: "2024 — 2027" },
-    { title: "Fortinet Certified Associate (FCA)", issuer: "Fortinet", id: "#2338830402MI", period: "2024 — 2026" },
-    { title: "Fortinet Certified Fundamental (FCF)", issuer: "Fortinet", id: "#9586998811MI", period: "2024 — 2026" },
-    { title: "MikroTik Certified Routing Engineer (MTCRE)", issuer: "MikroTik", id: "#2302RE3845", period: "2023 — 2026" },
-    { title: "MikroTik Certified Network Associate (MTCNA)", issuer: "MikroTik", id: "#2404NA1557", period: "2024 — 2027" },
-    { title: "Network Security Expert 2 (NSE 2)", issuer: "Fortinet", id: "#6KFdl9tbu1", period: "2023 — 2025" },
-    { title: "Network Security Expert 1 (NSE 1)", issuer: "Fortinet", id: "Verified", period: "2023 — 2025" },
+    { id: "cisco-ccna", title: "Cisco Certified Network Associate (CCNA 200-301)", issuer: "Cisco Systems", credId: "#478915238", period: "2024 — 2027", hasFile: true },
+    { id: "mikrotik-mtcre", title: "MikroTik Certified Routing Engineer (MTCRE)", issuer: "MikroTik", credId: "#2302RE3845", period: "2023 — 2026", hasFile: true },
+    { id: "mikrotik-mtcna", title: "MikroTik Certified Network Associate (MTCNA)", issuer: "MikroTik", credId: "#2404NA1557", period: "2024 — 2027", hasFile: true },
+    { id: "fortinet-fca", title: "Fortinet Certified Associate (FCA)", issuer: "Fortinet", credId: "#2338830402MI", period: "2024 — 2026", hasFile: false },
+    { id: "fortinet-fcf", title: "Fortinet Certified Fundamental (FCF)", issuer: "Fortinet", credId: "#9586998811MI", period: "2024 — 2026", hasFile: false },
+    { id: "nse-2", title: "Network Security Expert 2 (NSE 2)", issuer: "Fortinet", credId: "#6KFdl9tbu1", period: "2023 — 2025", hasFile: false },
+    { id: "nse-1", title: "Network Security Expert 1 (NSE 1)", issuer: "Fortinet", credId: "Verified", period: "2023 — 2025", hasFile: false },
   ];
 
   const publishedBooks = [
@@ -37,26 +42,33 @@ export const CvPage: React.FC = () => {
     { title: "Politeknik Negeri Bali IT #14 (Networking) — 4th Finalist", organizer: "Politeknik Negeri Bali", year: "2022" },
   ];
 
+  const handleOpenCert = (certId: string) => {
+    const found = certificatesData.find((c) => c.id === certId);
+    if (found) setSelectedCert(found);
+  };
+
   return (
     <div className="min-h-screen pt-32 pb-24 px-6 md:px-12 bg-[#050505] text-[#f2f2ee]">
       <div className="max-w-5xl mx-auto">
         {/* Navigation & Actions */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-10 print:hidden">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-10 print:hidden font-mono">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 font-mono text-xs text-[#8a8a86] hover:text-[#f2f2ee] transition-colors uppercase tracking-widest"
+            className="inline-flex items-center gap-2 text-xs text-[#8a8a86] hover:text-[#f2f2ee] transition-colors uppercase tracking-widest"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>RETURN TO OVERVIEW</span>
           </Link>
 
-          <button
-            onClick={handlePrint}
-            className="flex items-center gap-2 px-5 py-2.5 bg-[#f2f2ee] text-[#050505] hover:bg-emerald-400 font-mono text-xs font-bold transition-all rounded uppercase tracking-wider"
-          >
-            <Printer className="w-4 h-4" />
-            <span>PRINT / SAVE AS PDF</span>
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={handlePrint}
+              className="flex items-center gap-2 px-5 py-2.5 bg-[#f2f2ee] text-[#050505] hover:bg-emerald-400 font-mono text-xs font-bold transition-all rounded uppercase tracking-wider"
+            >
+              <Printer className="w-4 h-4" />
+              <span>PRINT / SAVE AS PDF</span>
+            </button>
+          </div>
         </div>
 
         {/* Printable Resume Container */}
@@ -135,27 +147,43 @@ export const CvPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Official Certifications */}
+          {/* Official Certifications with Live File Preview Modal */}
           <div className="mb-10">
-            <h2 className="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-4">
-              03 // VENDOR CERTIFICATIONS
-            </h2>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xs font-bold text-emerald-400 uppercase tracking-widest">
+                03 // VENDOR CERTIFICATIONS (CLICK TO PREVIEW OFFICIAL FILES)
+              </h2>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {certifications.map((cert) => (
                 <div
                   key={cert.title}
-                  className="p-3.5 bg-[#111111] border border-[rgba(242,242,238,0.06)] rounded flex items-start gap-3 print:bg-gray-100 print:border-gray-300"
+                  onClick={() => cert.hasFile && handleOpenCert(cert.id)}
+                  className={`p-3.5 bg-[#111111] border rounded flex items-start justify-between gap-3 transition-all ${
+                    cert.hasFile
+                      ? 'border-[rgba(242,242,238,0.12)] hover:border-emerald-400/60 cursor-pointer group'
+                      : 'border-[rgba(242,242,238,0.06)]'
+                  } print:bg-gray-100 print:border-gray-300`}
                 >
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="text-xs font-bold text-[#f2f2ee] print:text-black">
-                      {cert.title}
-                    </h3>
-                    <p className="text-[11px] text-[#8a8a86] print:text-gray-600">
-                      {cert.issuer} • <span className="text-emerald-400 font-mono">{cert.id}</span>
-                    </p>
-                    <p className="text-[10px] text-[#52524e] print:text-gray-500">Validity: {cert.period}</p>
+                  <div className="flex items-start gap-3">
+                    <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="text-xs font-bold text-[#f2f2ee] print:text-black group-hover:text-emerald-300 transition-colors">
+                        {cert.title}
+                      </h3>
+                      <p className="text-[11px] text-[#8a8a86] print:text-gray-600">
+                        {cert.issuer} • <span className="text-emerald-400 font-mono font-bold">{cert.credId}</span>
+                      </p>
+                      <p className="text-[10px] text-[#52524e] print:text-gray-500">Validity: {cert.period}</p>
+                    </div>
                   </div>
+
+                  {cert.hasFile && (
+                    <span className="hidden sm:inline-flex items-center gap-1 text-[10px] text-emerald-400 border border-emerald-400/30 px-2 py-0.5 rounded print:hidden shrink-0 group-hover:bg-emerald-400 group-hover:text-[#050505] transition-colors">
+                      <span>PREVIEW</span>
+                      <ExternalLink className="w-2.5 h-2.5" />
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
@@ -290,6 +318,12 @@ export const CvPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Certificate Lightbox Modal */}
+      <CertificateModal
+        certificate={selectedCert}
+        onClose={() => setSelectedCert(null)}
+      />
     </div>
   );
 };

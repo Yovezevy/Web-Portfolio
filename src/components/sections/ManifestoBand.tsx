@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 
 const words = [
+  { text: "DEPLOY", outline: false },
+  { text: "AUTOMATE", outline: true },
+  { text: "INTEGRATE", outline: false },
+  { text: "ARCHITECT", outline: true },
+  { text: "ROUTE", outline: false },
   { text: "CONNECT", outline: true },
   { text: "SECURE", outline: false },
-  { text: "ROUTE", outline: true },
-  { text: "AUTOMATE", outline: false },
-  { text: "DEPLOY", outline: true },
-  { text: "OPTIMIZE", outline: false },
-  { text: "INTEGRATE", outline: true },
-  { text: "MONITOR", outline: false },
+  { text: "OPTIMIZE", outline: true },
 ];
 
 export const ManifestoBand: React.FC = () => {
@@ -74,12 +74,13 @@ export const ManifestoBand: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative py-16 md:py-24 bg-[#050505] border-y border-[rgba(242,242,238,0.1)] overflow-hidden select-none group">
-      {/* Background Engineering Dot Matrix & Grid */}
-      <div className="absolute inset-0 bg-dots opacity-40 pointer-events-none" />
+    <section className="relative py-20 md:py-28 bg-[#050505] border-y border-[rgba(242,242,238,0.1)] overflow-hidden select-none group">
+      {/* Background Cinematic Radial Lighting Gradient & Dither Texture (Persis Gambar 1 Referensi) */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.08)_0%,rgba(30,30,30,0.35)_40%,rgba(5,5,5,1)_85%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-dots opacity-45 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505] pointer-events-none" />
 
-      {/* Infinite Scrolling Track with Dynamic Scroll-Velocity Acceleration */}
+      {/* Infinite Scrolling Track with Dynamic Velocity Skew */}
       <div
         className="relative z-10 w-full overflow-hidden"
         onMouseEnter={() => {
@@ -110,7 +111,7 @@ export const ManifestoBand: React.FC = () => {
             ))}
           </div>
 
-          {/* Duplicated sequence for seamless wrap */}
+          {/* Duplicated sequence for seamless loop */}
           <div
             className="flex shrink-0 items-center gap-8 md:gap-14 pr-8 md:pr-14"
             aria-hidden="true"
@@ -135,10 +136,10 @@ export const ManifestoBand: React.FC = () => {
         </div>
       </div>
 
-      {/* Center Subcaption Underneath (As in Reference Screenshot 1) */}
+      {/* Center Subcaption Underneath (Persis Gambar 1 Referensi) */}
       <div className="relative z-10 mt-6 md:mt-8 px-6 text-center">
-        <p className="font-mono text-[11px] md:text-xs tracking-widest2 text-[#8a8a86] uppercase max-w-xl mx-auto">
-          ENTERPRISE NETWORKS, BGP TOPOLOGIES AND RESILIENT SYSTEMS SERVING REAL-WORLD OPERATIONS.
+        <p className="font-mono text-[11px] md:text-xs tracking-widest2 text-[#8a8a86] uppercase max-w-2xl mx-auto">
+          ENTERPRISE ROUTING, RESILIENT NETWORKS AND HIGH-PERFORMANCE WEB APPLICATION RUNTIMES.
         </p>
       </div>
     </section>
