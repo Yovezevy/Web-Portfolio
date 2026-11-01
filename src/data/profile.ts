@@ -21,7 +21,7 @@ export const profileData: ProfileData = {
     { label: "STUDENTS TRAINED", value: "500+", detail: "MTCNA & MTCRE Certified Trainer" }
   ],
   socials: [
-    { label: "PORTFOLIO", url: "https://its.id/Portofolio_Ihsan", iconName: "Globe" },
+    { label: "INSTAGRAM", url: "https://www.instagram.com/blog_etc22/", iconName: "Instagram" },
     { label: "LINKEDIN", url: "https://linkedin.com", iconName: "Linkedin" },
     { label: "GITHUB", url: "https://github.com", iconName: "Github" },
     { label: "EMAIL", url: "mailto:sann252101@gmail.com", iconName: "Mail" }

@@ -6,6 +6,24 @@ import { RidgeLinesCanvas } from '../ui/RidgeLinesCanvas';
 import { ProximityText } from '../ui/ProximityText';
 import { useLanguage } from '../../context/LanguageContext';
 
+const InstagramIcon: React.FC<{ className?: string }> = ({ className = 'w-3.5 h-3.5' }) => (
+  <svg
+    viewBox="0 0 24 24"
+    width="14"
+    height="14"
+    stroke="currentColor"
+    strokeWidth="2"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
+
 export const Footer: React.FC = () => {
   const { lang } = useLanguage();
   const [time, setTime] = useState<string>('');
@@ -122,6 +140,17 @@ export const Footer: React.FC = () => {
               SOCIAL
             </h3>
             <ul className="space-y-2.5 text-xs text-[#8a8a86]">
+              <li>
+                <a
+                  href="https://www.instagram.com/blog_etc22/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5"
+                >
+                  <InstagramIcon />
+                  <span>Instagram ↗</span>
+                </a>
+              </li>
               <li>
                 <a
                   href="https://github.com/Akiyo974"
