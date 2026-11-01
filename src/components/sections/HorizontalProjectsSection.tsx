@@ -19,21 +19,25 @@ export const HorizontalProjectsSection: React.FC = () => {
     const track = trackRef.current;
     if (!section || !track) return;
 
-    // Only enable GSAP pin on desktop / screens above 768px for optimal mobile touch experience
+    // Use GSAP matchMedia for desktop pinning (> 768px)
     const mm = gsap.matchMedia();
 
     mm.add('(min-width: 768px)', () => {
-      const totalWidth = track.scrollWidth - window.innerWidth + 80;
+      // Dynamic distance calculation ensuring proper fit across all screen aspect ratios
+      const getScrollDistance = () => {
+        return Math.max(0, track.scrollWidth - window.innerWidth + 100);
+      };
 
       const anim = gsap.to(track, {
-        x: -totalWidth,
+        x: () => -getScrollDistance(),
         ease: 'none',
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: `+=${totalWidth}`,
+          end: () => `+=${getScrollDistance()}`,
           pin: true,
-          scrub: 1,
+          scrub: 0.2, // Ultra-responsive & silky smooth with Lenis (replaces sluggish scrub: 1)
+          anticipatePin: 1, // Eliminates jump / flash when entering pin
           invalidateOnRefresh: true,
         },
       });
@@ -53,7 +57,7 @@ export const HorizontalProjectsSection: React.FC = () => {
     <section
       ref={sectionRef}
       id="projects"
-      className="relative bg-[#070707] border-b border-[rgba(242,242,238,0.1)] overflow-hidden"
+      className="relative bg-[#070707] border-b border-[rgba(242,242,238,0.1)] overflow-hidden select-none"
     >
       {/* Section Header */}
       <div className="pt-24 px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
@@ -86,13 +90,13 @@ export const HorizontalProjectsSection: React.FC = () => {
       <div className="pb-24 px-6 md:px-12 overflow-x-auto md:overflow-x-visible no-scrollbar">
         <div
           ref={trackRef}
-          className="flex flex-row gap-8 items-stretch w-max pb-4"
+          className="flex flex-row gap-8 items-stretch w-max pb-4 will-change-transform transform-gpu"
         >
           {projectsData.map((project, idx) => (
             <div
               key={project.id}
               data-cursor="EXPLORE"
-              className="w-[85vw] sm:w-[480px] md:w-[560px] p-8 md:p-10 bg-[#0d0d0d] border border-[rgba(242,242,238,0.1)] hover:border-emerald-400/40 transition-all duration-300 rounded-lg flex flex-col justify-between shrink-0 group relative overflow-hidden"
+              className="w-[85vw] sm:w-[480px] md:w-[560px] p-8 md:p-10 bg-[#0d0d0d] border border-[rgba(242,242,238,0.1)] hover:border-emerald-400/50 transition-colors duration-200 rounded-lg flex flex-col justify-between shrink-0 group relative overflow-hidden"
             >
               {/* Massive Kinetic Index Number in Background */}
               <span className="absolute -bottom-8 -right-4 font-display font-black text-8xl md:text-9xl text-[rgba(242,242,238,0.03)] group-hover:text-[rgba(52,211,153,0.06)] transition-colors select-none pointer-events-none tabular-nums">
@@ -187,7 +191,7 @@ export const HorizontalProjectsSection: React.FC = () => {
           ))}
 
           {/* Final Call to Action Slide in Horizontal Track */}
-          <div className="w-[85vw] sm:w-[380px] p-8 md:p-10 bg-[#0d0d0d] border border-dashed border-[rgba(242,242,238,0.15)] rounded-lg flex flex-col justify-between shrink-0 group hover:border-emerald-400 transition-all">
+          <div className="w-[85vw] sm:w-[380px] p-8 md:p-10 bg-[#0d0d0d] border border-dashed border-[rgba(242,242,238,0.15)] rounded-lg flex flex-col justify-between shrink-0 group hover:border-emerald-400 transition-colors">
             <span className="font-mono text-xs text-emerald-400 uppercase tracking-widest">
               END OF SHOWCASE
             </span>

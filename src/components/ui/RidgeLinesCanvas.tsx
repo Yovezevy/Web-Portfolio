@@ -31,12 +31,23 @@ export const RidgeLinesCanvas: React.FC<RidgeLinesCanvasProps> = ({ className = 
     };
     canvas.addEventListener('mousemove', handleMouseMove);
 
+    let isVisible = true;
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    });
+    observer.observe(canvas);
+
     let animationId: number;
     let t = 0;
 
     const lineCount = 20;
 
     const render = () => {
+      if (!isVisible) {
+        animationId = requestAnimationFrame(render);
+        return;
+      }
+
       ctx.clearRect(0, 0, width, height);
 
       // Subtle background grid
@@ -148,6 +159,7 @@ export const RidgeLinesCanvas: React.FC<RidgeLinesCanvasProps> = ({ className = 
 
     return () => {
       cancelAnimationFrame(animationId);
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
       canvas.removeEventListener('mousemove', handleMouseMove);
     };

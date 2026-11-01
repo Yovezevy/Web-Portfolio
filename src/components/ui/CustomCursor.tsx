@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 export const CustomCursor: React.FC = () => {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isPointer, setIsPointer] = useState(false);
   const [cursorText, setCursorText] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   const cursorRef = useRef<HTMLDivElement>(null);
+  const coordRef = useRef<HTMLDivElement>(null);
   const posRef = useRef({ x: -100, y: -100, targetX: -100, targetY: -100 });
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export const CustomCursor: React.FC = () => {
     const handleMouseMove = (e: MouseEvent) => {
       posRef.current.targetX = e.clientX;
       posRef.current.targetY = e.clientY;
-      setIsVisible(true);
+      if (!isVisible) setIsVisible(true);
 
       // Check hovered element
       const target = e.target as HTMLElement | null;
@@ -31,7 +31,8 @@ export const CustomCursor: React.FC = () => {
 
       const customBadge = target.closest('[data-cursor]') as HTMLElement | null;
       if (customBadge) {
-        setCursorText(customBadge.getAttribute('data-cursor'));
+        const text = customBadge.getAttribute('data-cursor');
+        setCursorText(text);
       } else {
         setCursorText(null);
       }
@@ -45,18 +46,25 @@ export const CustomCursor: React.FC = () => {
       setIsVisible(true);
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseenter', handleMouseEnter);
 
-    // Smooth animation loop for physics lerping
+    // High-performance smooth animation loop (Direct GPU DOM transform - 0 React re-renders)
     let rafId: number;
     const animate = () => {
       const pos = posRef.current;
-      pos.x += (pos.targetX - pos.x) * 0.22;
-      pos.y += (pos.targetY - pos.y) * 0.22;
+      pos.x += (pos.targetX - pos.x) * 0.24;
+      pos.y += (pos.targetY - pos.y) * 0.24;
 
-      setPosition({ x: pos.x, y: pos.y });
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0)`;
+      }
+
+      if (coordRef.current) {
+        coordRef.current.textContent = `X:${Math.round(pos.x)} Y:${Math.round(pos.y)}`;
+      }
+
       rafId = requestAnimationFrame(animate);
     };
 
@@ -68,18 +76,18 @@ export const CustomCursor: React.FC = () => {
       document.removeEventListener('mouseenter', handleMouseEnter);
       cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [isVisible]);
 
   if (isTouchDevice) return null;
 
   return (
     <div
       ref={cursorRef}
-      className={`fixed top-0 left-0 pointer-events-none z-50 transition-opacity duration-300 font-mono ${
+      className={`fixed top-0 left-0 pointer-events-none z-50 transition-opacity duration-200 font-mono will-change-transform ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
       style={{
-        transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
+        transform: 'translate3d(-100px, -100px, 0)',
       }}
     >
       {/* Immediate Tracking Center Dot & Morphing Badge */}
@@ -116,11 +124,13 @@ export const CustomCursor: React.FC = () => {
         />
       )}
 
-      {/* Technical Coordinates Indicator (Shifted away so it never overlaps the badge) */}
+      {/* Technical Coordinates Indicator */}
       {!cursorText && (
-        <div className="absolute left-4 top-4 text-[9px] text-[#52524e] tracking-widest whitespace-nowrap hidden sm:block select-none">
-          <span>X:{Math.round(position.x)}</span>{' '}
-          <span>Y:{Math.round(position.y)}</span>
+        <div
+          ref={coordRef}
+          className="absolute left-4 top-4 text-[9px] text-[#52524e] tracking-widest whitespace-nowrap hidden sm:block select-none"
+        >
+          X:0 Y:0
         </div>
       )}
     </div>

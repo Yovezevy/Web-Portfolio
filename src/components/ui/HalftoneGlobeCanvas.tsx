@@ -55,11 +55,22 @@ export const HalftoneGlobeCanvas: React.FC<HalftoneGlobeCanvasProps> = ({ classN
       points.push({ x, y, z, baseRadius });
     }
 
+    let isVisible = true;
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    });
+    observer.observe(canvas);
+
     let animationId: number;
     let angleY = 0;
     let angleX = 0.3;
 
     const render = () => {
+      if (!isVisible) {
+        animationId = requestAnimationFrame(render);
+        return;
+      }
+
       ctx.clearRect(0, 0, width, height);
 
       // Subtle background grid
@@ -163,6 +174,7 @@ export const HalftoneGlobeCanvas: React.FC<HalftoneGlobeCanvasProps> = ({ classN
 
     return () => {
       cancelAnimationFrame(animationId);
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
       canvas.removeEventListener('mousemove', handleMouseMove);
     };

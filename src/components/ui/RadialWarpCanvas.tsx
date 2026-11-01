@@ -59,10 +59,21 @@ export const RadialWarpCanvas: React.FC<RadialWarpCanvasProps> = ({
 
     canvas.addEventListener('mousemove', handleMouseMove);
 
+    let isVisible = true;
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    });
+    observer.observe(canvas);
+
     let animationId: number;
     let offset = 0;
 
     const render = () => {
+      if (!isVisible) {
+        animationId = requestAnimationFrame(render);
+        return;
+      }
+
       ctx.clearRect(0, 0, width, height);
 
       // Smooth mouse lerping
@@ -154,6 +165,7 @@ export const RadialWarpCanvas: React.FC<RadialWarpCanvasProps> = ({
 
     return () => {
       cancelAnimationFrame(animationId);
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
       canvas.removeEventListener('mousemove', handleMouseMove);
     };
