@@ -29,12 +29,16 @@ export const CustomCursor: React.FC = () => {
       const interactive = target.closest('a, button, input, textarea, select, [role="button"], .cursor-pointer');
       setIsPointer(!!interactive);
 
-      const customBadge = target.closest('[data-cursor]') as HTMLElement | null;
-      if (customBadge) {
-        const text = customBadge.getAttribute('data-cursor');
-        setCursorText(text);
-      } else {
+      if (interactive) {
         setCursorText(null);
+      } else {
+        const customBadge = target.closest('[data-cursor]') as HTMLElement | null;
+        if (customBadge) {
+          const text = customBadge.getAttribute('data-cursor');
+          setCursorText(text);
+        } else {
+          setCursorText(null);
+        }
       }
     };
 

@@ -154,12 +154,21 @@ export const DitheredSphere: React.FC<DitheredSphereProps> = ({ className = '' }
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(container);
 
+    let isVisible = true;
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    });
+    observer.observe(container);
+
     // Animation loop
     let animationFrameId: number;
     const clock = new THREE.Clock();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
+
+      if (!isVisible) return; // Skip WebGL rendering when hero is offscreen
+
       const elapsedTime = clock.getElapsedTime();
 
       // Continuous subtle rotation
@@ -186,6 +195,7 @@ export const DitheredSphere: React.FC<DitheredSphereProps> = ({ className = '' }
     // Cleanup
     return () => {
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
       window.removeEventListener('mousemove', handleMouseMove);
       resizeObserver.disconnect();
       if (container && renderer.domElement) {
