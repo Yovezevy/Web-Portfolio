@@ -11,7 +11,7 @@ export const ExperienceSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
-            <span className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-3 block">
+            <span className="font-mono text-xs tracking-widest uppercase text-blue-400 mb-3 block">
               05 // TRACK RECORD
             </span>
             <MaskedHeading
@@ -30,14 +30,14 @@ export const ExperienceSection: React.FC = () => {
         <div className="space-y-12">
           {experienceData.map((item, idx) => (
             <RevealWrapper key={item.company + item.period} delay={idx * 0.15}>
-              <div className="p-8 md:p-10 bg-[#0a0a0a] border border-[rgba(242,242,238,0.1)] hover:border-emerald-400/40 hover:-translate-y-1 transition-all duration-300 rounded-lg relative overflow-hidden group">
+              <div className="p-8 md:p-10 bg-[#0a0a0a] border border-[rgba(242,242,238,0.1)] hover:border-blue-400/40 hover:-translate-y-1 transition-all duration-300 rounded-lg relative overflow-hidden group">
                 {/* Top Row: Period, Role, Company */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-[rgba(242,242,238,0.06)] font-mono text-xs">
                   <div>
-                    <span className="text-emerald-400 font-bold text-sm tracking-wider block mb-1">
+                    <span className="text-blue-400 font-bold text-sm tracking-wider block mb-1">
                       {item.period}
                     </span>
-                    <h3 className="font-display text-3xl md:text-4xl text-[#f2f2ee] tracking-wide group-hover:text-emerald-300 transition-colors">
+                    <h3 className="font-display text-3xl md:text-4xl text-[#f2f2ee] tracking-wide group-hover:text-blue-300 transition-colors">
                       {item.role}
                     </h3>
                     <span className="text-base text-[#8a8a86] font-sans">
@@ -50,7 +50,7 @@ export const ExperienceSection: React.FC = () => {
                       {item.type}
                     </span>
                     <span className="flex items-center gap-1.5 text-xs text-[#8a8a86]">
-                      <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+                      <MapPin className="w-3.5 h-3.5 text-blue-400" />
                       {item.location}
                     </span>
                   </div>
@@ -68,7 +68,7 @@ export const ExperienceSection: React.FC = () => {
                   </span>
                   {item.achievements.map((ach, achIdx) => (
                     <div key={achIdx} className="flex items-start gap-2.5 text-xs md:text-sm font-sans text-[#cccccc]">
-                      <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <CheckCircle className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                       <span>{ach}</span>
                     </div>
                   ))}

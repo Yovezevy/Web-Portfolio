@@ -36,7 +36,7 @@ export const AboutSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
-            <span className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-3 block">
+            <span className="font-mono text-xs tracking-widest uppercase text-blue-400 mb-3 block">
               01 // CORE PHILOSOPHY
             </span>
             <MaskedHeading
@@ -62,18 +62,18 @@ export const AboutSection: React.FC = () => {
             const Icon = pillar.icon;
             return (
               <RevealWrapper key={pillar.title} delay={idx * 0.15}>
-                <div className="group h-full p-8 bg-[#0d0d0d] border border-[rgba(242,242,238,0.1)] hover:border-emerald-400/40 hover:-translate-y-1 transition-all duration-300 rounded-lg flex flex-col justify-between">
+                <div className="group h-full p-8 bg-[#0d0d0d] border border-[rgba(242,242,238,0.1)] hover:border-blue-400/40 hover:-translate-y-1 transition-all duration-300 rounded-lg flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between mb-6">
-                      <div className="p-3 bg-[rgba(242,242,238,0.04)] border border-[rgba(242,242,238,0.1)] rounded group-hover:border-emerald-400/50 transition-colors">
-                        <Icon className="w-5 h-5 text-emerald-400" />
+                      <div className="p-3 bg-[rgba(242,242,238,0.04)] border border-[rgba(242,242,238,0.1)] rounded group-hover:border-blue-400/50 transition-colors">
+                        <Icon className="w-5 h-5 text-blue-400" />
                       </div>
                       <span className="font-mono text-[10px] tracking-widest uppercase text-[#52524e]">
                         {pillar.tag}
                       </span>
                     </div>
 
-                    <h3 className="font-display text-2xl text-[#f2f2ee] tracking-wide mb-3 group-hover:text-emerald-300 transition-colors">
+                    <h3 className="font-display text-2xl text-[#f2f2ee] tracking-wide mb-3 group-hover:text-blue-300 transition-colors">
                       {pillar.title}
                     </h3>
 
@@ -84,7 +84,7 @@ export const AboutSection: React.FC = () => {
 
                   <div className="mt-8 pt-4 border-t border-[rgba(242,242,238,0.06)] flex items-center justify-between text-xs font-mono text-[#52524e] group-hover:text-[#8a8a86]">
                     <span>DISCIPLINE_VERIFIED</span>
-                    <ArrowUpRight className="w-4 h-4 group-hover:text-emerald-400 transition-colors" />
+                    <ArrowUpRight className="w-4 h-4 group-hover:text-blue-400 transition-colors" />
                   </div>
                 </div>
               </RevealWrapper>
@@ -96,7 +96,7 @@ export const AboutSection: React.FC = () => {
         <RevealWrapper delay={0.3}>
           <div className="mt-12 p-8 md:p-10 bg-[#0a0a0a] border border-[rgba(242,242,238,0.08)] rounded-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="max-w-3xl">
-              <h4 className="font-mono text-xs uppercase tracking-widest text-emerald-400 mb-2">
+              <h4 className="font-mono text-xs uppercase tracking-widest text-blue-400 mb-2">
                 BIOGRAPHY // BACKGROUND
               </h4>
               <p className="font-sans text-base text-[#8a8a86] leading-relaxed">

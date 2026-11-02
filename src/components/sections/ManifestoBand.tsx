@@ -99,7 +99,7 @@ export const ManifestoBand: React.FC = () => {
                   className={`font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-tight transition-all duration-300 ${
                     item.outline
                       ? 'text-outline hover:text-[#f2f2ee]'
-                      : 'text-[#f2f2ee] hover:text-emerald-400 font-bold'
+                      : 'text-[#f2f2ee] hover:text-blue-400 font-bold'
                   }`}
                 >
                   {item.text}
@@ -122,7 +122,7 @@ export const ManifestoBand: React.FC = () => {
                   className={`font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-tight transition-all duration-300 ${
                     item.outline
                       ? 'text-outline hover:text-[#f2f2ee]'
-                      : 'text-[#f2f2ee] hover:text-emerald-400 font-bold'
+                      : 'text-[#f2f2ee] hover:text-blue-400 font-bold'
                   }`}
                 >
                   {item.text}

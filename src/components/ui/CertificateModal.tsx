@@ -48,12 +48,12 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({ certificate,
         {/* Modal Top Header Bar */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-[rgba(242,242,238,0.1)] bg-[#0e0e0e]/90 select-none">
           <div className="flex items-center gap-3">
-            <span className="p-2 bg-[rgba(242,242,238,0.05)] border border-[rgba(242,242,238,0.1)] rounded text-emerald-400">
+            <span className="p-2 bg-[rgba(242,242,238,0.05)] border border-[rgba(242,242,238,0.1)] rounded text-blue-400">
               <ShieldCheck className="w-4 h-4" />
             </span>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-[10px] tracking-widest uppercase font-bold text-emerald-400">
+                <span className="text-[10px] tracking-widest uppercase font-bold text-blue-400">
                   {certificate.badgeCode}
                 </span>
                 <span className="text-[#52524e]">•</span>
@@ -89,14 +89,14 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({ certificate,
               />
               <div className="mt-3 flex items-center justify-between w-full text-xs text-[#8a8a86]">
                 <div className="flex items-center gap-2">
-                  <FileText className="w-3.5 h-3.5 text-emerald-400" />
+                  <FileText className="w-3.5 h-3.5 text-blue-400" />
                   <span>OFFICIAL PDF DOCUMENT SIGNED BY MIKROTIK SIA</span>
                 </div>
                 <a
                   href={certificate.filePath}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 transition-colors"
+                  className="text-blue-400 hover:text-blue-300 inline-flex items-center gap-1 transition-colors"
                 >
                   <span>Open Raw PDF</span>
                   <ExternalLink className="w-3 h-3" />
@@ -122,7 +122,7 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({ certificate,
                   href={certificate.filePath}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 transition-colors"
+                  className="text-blue-400 hover:text-blue-300 inline-flex items-center gap-1 transition-colors"
                 >
                   <span>Open Full Resolution</span>
                   <ExternalLink className="w-3 h-3" />
@@ -144,12 +144,12 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({ certificate,
                 className="ml-1.5 p-1 text-[#8a8a86] hover:text-[#f2f2ee] transition-colors"
                 title="Copy Credential ID"
               >
-                {copied ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                {copied ? <Check className="w-3 h-3 text-blue-400" /> : <Copy className="w-3 h-3" />}
               </button>
             </div>
 
-            <div className="flex items-center gap-1.5 text-emerald-400 text-[10px] tracking-widest font-bold uppercase">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#22c55e]" />
+            <div className="flex items-center gap-1.5 text-blue-400 text-[10px] tracking-widest font-bold uppercase">
+              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse shadow-[0_0_8px_#3b82f6]" />
               <span>STATUS: {certificate.status}</span>
             </div>
           </div>
@@ -159,7 +159,7 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({ certificate,
             <a
               href={certificate.filePath}
               download
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#f2f2ee] hover:bg-emerald-400 text-[#050505] font-bold text-xs rounded transition-colors tracking-wider"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#f2f2ee] hover:bg-blue-400 text-[#050505] font-bold text-xs rounded transition-colors tracking-wider"
             >
               <Download className="w-3.5 h-3.5" />
               <span>DOWNLOAD OFFICIAL FILE</span>

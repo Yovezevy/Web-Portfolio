@@ -19,7 +19,7 @@ export const ProjectsSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <span className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-3 block">
+            <span className="font-mono text-xs tracking-widest uppercase text-blue-400 mb-3 block">
               02 // SELECTED WORK
             </span>
             <h2 className="font-display font-light text-5xl md:text-7xl uppercase text-[#f2f2ee] tracking-tight">
@@ -61,14 +61,14 @@ export const ProjectsSection: React.FC = () => {
               <div>
                 {/* Card Top: Year & Category */}
                 <div className="flex items-center justify-between text-xs font-mono text-[#8a8a86] mb-4">
-                  <span className="text-emerald-400 font-bold">{project.year}</span>
+                  <span className="text-blue-400 font-bold">{project.year}</span>
                   <span className="px-2 py-0.5 rounded bg-[rgba(242,242,238,0.05)] border border-[rgba(242,242,238,0.08)]">
                     {project.category}
                   </span>
                 </div>
 
                 {/* Title & Role */}
-                <h3 className="font-display text-3xl md:text-4xl text-[#f2f2ee] tracking-wide mb-2 group-hover:text-emerald-300 transition-colors">
+                <h3 className="font-display text-3xl md:text-4xl text-[#f2f2ee] tracking-wide mb-2 group-hover:text-blue-300 transition-colors">
                   {project.title}
                 </h3>
                 <p className="font-mono text-xs text-[#52524e] mb-4 uppercase tracking-wider">
@@ -86,7 +86,7 @@ export const ProjectsSection: React.FC = () => {
                     {project.metrics.map((m) => (
                       <div key={m.label}>
                         <span className="text-[10px] text-[#52524e] uppercase block">{m.label}</span>
-                        <span className="text-emerald-400 font-semibold">{m.value}</span>
+                        <span className="text-blue-400 font-semibold">{m.value}</span>
                       </div>
                     ))}
                   </div>
@@ -124,7 +124,7 @@ export const ProjectsSection: React.FC = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 transition-colors"
+                      className="flex items-center gap-1.5 text-blue-400 hover:text-blue-300 transition-colors"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
                       <span>LIVE DEMO</span>
@@ -155,7 +155,7 @@ export const ProjectsSection: React.FC = () => {
                 [CLOSE ×]
               </button>
 
-              <span className="text-xs text-emerald-400 tracking-widest uppercase block mb-1">
+              <span className="text-xs text-blue-400 tracking-widest uppercase block mb-1">
                 {selectedProject.category} // {selectedProject.year}
               </span>
               <h3 className="font-display text-3xl text-[#f2f2ee] mb-4">
@@ -171,7 +171,7 @@ export const ProjectsSection: React.FC = () => {
                   {selectedProject.metrics.map((m) => (
                     <div key={m.label}>
                       <span className="text-[#52524e] uppercase block text-[10px]">{m.label}</span>
-                      <span className="text-emerald-400 text-sm font-semibold">{m.value}</span>
+                      <span className="text-blue-400 text-sm font-semibold">{m.value}</span>
                     </div>
                   ))}
                 </div>
@@ -204,7 +204,7 @@ export const ProjectsSection: React.FC = () => {
                     href={selectedProject.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-emerald-400 text-[#050505] font-bold hover:bg-emerald-300 transition-all rounded"
+                    className="px-4 py-2 bg-blue-400 text-[#050505] font-bold hover:bg-blue-300 transition-all rounded"
                   >
                     LAUNCH DEMO
                   </a>

@@ -32,7 +32,7 @@ export const FloatingBackToTop: React.FC = () => {
     >
       <button
         onClick={scrollToTop}
-        className="w-10 h-10 bg-[#050505]/85 backdrop-blur-md border border-[rgba(242,242,238,0.2)] text-[#f2f2ee] hover:bg-[#f2f2ee] hover:text-[#050505] hover:border-[#f2f2ee] transition-all rounded shadow-2xl flex items-center justify-center group focus:outline-none focus:ring-1 focus:ring-emerald-400"
+        className="w-10 h-10 bg-[#050505]/85 backdrop-blur-md border border-[rgba(242,242,238,0.2)] text-[#f2f2ee] hover:bg-[#f2f2ee] hover:text-[#050505] hover:border-[#f2f2ee] transition-all rounded shadow-2xl flex items-center justify-center group focus:outline-none focus:ring-1 focus:ring-blue-400"
         aria-label="Scroll back to top"
         title="Scroll to Top"
       >

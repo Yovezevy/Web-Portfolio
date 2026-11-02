@@ -58,7 +58,7 @@ export const JourneySection: React.FC = () => {
             <RevealWrapper delay={0.1}>
               {/* Kicker Tag */}
               <div className="flex items-center gap-2 text-xs tracking-widest text-[#8a8a86] uppercase mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
                 <span>
                   {lang === 'id'
                     ? '[ PERJALANAN ] · KALIMANTAN (IKN) ➔ JAWA (ITS)'
@@ -75,7 +75,7 @@ export const JourneySection: React.FC = () => {
               {/* Progress Divider Line */}
               <div className="h-px w-full bg-[rgba(242,242,238,0.12)] mb-6 relative overflow-hidden">
                 <div
-                  className="h-full bg-emerald-400 transition-all duration-300 origin-left"
+                  className="h-full bg-blue-400 transition-all duration-300 origin-left"
                   style={{ width: `${progress * 100}%` }}
                 />
               </div>
@@ -93,7 +93,7 @@ export const JourneySection: React.FC = () => {
                   <dt className="text-[#8a8a86] mb-1">
                     {lang === 'id' ? 'SEKARANG DI' : 'NOW BASED IN'}
                   </dt>
-                  <dd className="text-emerald-400 font-bold">SURABAYA (ITS)</dd>
+                  <dd className="text-blue-400 font-bold">SURABAYA (ITS)</dd>
                   <dd className="text-[#8a8a86] text-[11px] mt-0.5">7.28°S · 112.80°E</dd>
                 </div>
               </dl>
@@ -116,7 +116,7 @@ export const JourneySection: React.FC = () => {
 
                 {/* Top Overlay Badge */}
                 <div className="absolute top-4 left-5 flex items-center gap-2 text-[10px] tracking-widest text-[#8a8a86] uppercase select-none pointer-events-none bg-[#050505]/75 backdrop-blur-sm px-2.5 py-1 rounded border border-[rgba(242,242,238,0.08)]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
                   <span>INDONESIA ARCHIPELAGO // DRAG TO ROTATE</span>
                 </div>
 

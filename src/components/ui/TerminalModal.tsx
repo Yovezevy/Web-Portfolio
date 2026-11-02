@@ -20,7 +20,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
     {
       command: 'sysinfo',
       output: (
-        <div className="text-emerald-400 space-y-1">
+        <div className="text-blue-400 space-y-1">
           <p>NET_DEV OS [Version 5.15.0-hardened]</p>
           <p>System Online. Type <span className="text-white font-bold">'help'</span> for a list of available network commands.</p>
         </div>
@@ -55,15 +55,15 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
       response = (
         <div className="space-y-1 text-[#8a8a86]">
           <p className="text-white font-semibold">AVAILABLE NETWORK COMMANDS:</p>
-          <p><span className="text-emerald-400 font-bold">status</span>       - Display system uptime, network status, and metrics</p>
-          <p><span className="text-emerald-400 font-bold">ping [host]</span>  - Send simulated ICMP echo packets</p>
-          <p><span className="text-emerald-400 font-bold">traceroute</span>   - Trace routing hops to target gateway</p>
-          <p><span className="text-emerald-400 font-bold">skills</span>       - List technical capabilities & networking protocols</p>
-          <p><span className="text-emerald-400 font-bold">projects</span>     - Show featured infrastructure and web projects</p>
-          <p><span className="text-emerald-400 font-bold">whoami</span>       - Display developer biography and role</p>
-          <p><span className="text-emerald-400 font-bold">contact</span>      - Get direct contact info</p>
-          <p><span className="text-emerald-400 font-bold">clear</span>        - Clear the terminal screen</p>
-          <p><span className="text-emerald-400 font-bold">exit</span>         - Close the terminal session</p>
+          <p><span className="text-blue-400 font-bold">status</span>       - Display system uptime, network status, and metrics</p>
+          <p><span className="text-blue-400 font-bold">ping [host]</span>  - Send simulated ICMP echo packets</p>
+          <p><span className="text-blue-400 font-bold">traceroute</span>   - Trace routing hops to target gateway</p>
+          <p><span className="text-blue-400 font-bold">skills</span>       - List technical capabilities & networking protocols</p>
+          <p><span className="text-blue-400 font-bold">projects</span>     - Show featured infrastructure and web projects</p>
+          <p><span className="text-blue-400 font-bold">whoami</span>       - Display developer biography and role</p>
+          <p><span className="text-blue-400 font-bold">contact</span>      - Get direct contact info</p>
+          <p><span className="text-blue-400 font-bold">clear</span>        - Clear the terminal screen</p>
+          <p><span className="text-blue-400 font-bold">exit</span>         - Close the terminal session</p>
         </div>
       );
     } else if (trimmed === 'clear') {
@@ -76,11 +76,11 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
       response = (
         <div className="space-y-1 text-[#8a8a86]">
           <p className="text-white">--- SYSTEM INTERFACE TELEMETRY ---</p>
-          <p>HOST: <span className="text-emerald-400">{profileData.name}</span></p>
-          <p>ROLE: <span className="text-emerald-400">{profileData.role}</span></p>
+          <p>HOST: <span className="text-blue-400">{profileData.name}</span></p>
+          <p>ROLE: <span className="text-blue-400">{profileData.role}</span></p>
           <p>AVAILABILITY: <span className="text-cyan-400">{profileData.availability}</span></p>
-          <p>UPTIME: <span className="text-emerald-400">99.99%</span> // ZERO OUTAGES</p>
-          <p>LATENCY (EDGE): <span className="text-emerald-400">11.4ms</span></p>
+          <p>UPTIME: <span className="text-blue-400">99.99%</span> // ZERO OUTAGES</p>
+          <p>LATENCY (EDGE): <span className="text-blue-400">11.4ms</span></p>
           <p>ACTIVE INTERFACES: eth0 (WAN/BGP), wg0 (WireGuard Mesh), br0 (LAN)</p>
         </div>
       );
@@ -93,7 +93,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
           <p>64 bytes from {target}: icmp_seq=2 ttl=118 time=10.8 ms</p>
           <p>64 bytes from {target}: icmp_seq=3 ttl=118 time=12.1 ms</p>
           <p>64 bytes from {target}: icmp_seq=4 ttl=118 time=11.5 ms</p>
-          <p className="text-emerald-400 font-bold pt-1">--- {target} ping statistics: 4 packets transmitted, 0% packet loss ---</p>
+          <p className="text-blue-400 font-bold pt-1">--- {target} ping statistics: 4 packets transmitted, 0% packet loss ---</p>
         </div>
       );
     } else if (trimmed === 'traceroute' || trimmed.startsWith('traceroute')) {
@@ -126,7 +126,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
           <p className="text-white font-bold">PORTFOLIO PROJECTS:</p>
           {projectsData.map((p) => (
             <p key={p.id}>
-              <span className="text-emerald-400 font-semibold">{p.year}</span> —{' '}
+              <span className="text-blue-400 font-semibold">{p.year}</span> —{' '}
               <span className="text-white">{p.title}</span> ({p.category})
             </p>
           ))}
@@ -142,7 +142,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
     } else if (trimmed === 'contact') {
       response = (
         <div className="space-y-1 text-[#8a8a86]">
-          <p>EMAIL: <span className="text-emerald-400">{profileData.email}</span></p>
+          <p>EMAIL: <span className="text-blue-400">{profileData.email}</span></p>
           <p>STATUS: <span className="text-white">{profileData.availability}</span></p>
         </div>
       );
@@ -168,7 +168,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
         {/* Terminal Title Bar */}
         <div className="bg-[#141414] px-4 py-2.5 flex items-center justify-between border-b border-[rgba(242,242,238,0.1)] select-none">
           <div className="flex items-center gap-2">
-            <TerminalIcon className="w-4 h-4 text-emerald-400" />
+            <TerminalIcon className="w-4 h-4 text-blue-400" />
             <span className="text-xs text-[#f2f2ee] font-medium tracking-wide">
               terminal@net-dev-session: ~ (bash)
             </span>
@@ -199,7 +199,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
           {history.map((item, idx) => (
             <div key={idx} className="space-y-1.5">
               <div className="flex items-center gap-2 text-[#8a8a86]">
-                <span className="text-emerald-400 font-bold">user@net-dev:~$</span>
+                <span className="text-blue-400 font-bold">user@net-dev:~$</span>
                 <span className="text-[#f2f2ee]">{item.command}</span>
               </div>
               <div className="pl-4">{item.output}</div>
@@ -214,7 +214,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
             }}
             className="flex items-center gap-2 pt-1"
           >
-            <span className="text-emerald-400 font-bold shrink-0">user@net-dev:~$</span>
+            <span className="text-blue-400 font-bold shrink-0">user@net-dev:~$</span>
             <input
               ref={inputRef}
               type="text"

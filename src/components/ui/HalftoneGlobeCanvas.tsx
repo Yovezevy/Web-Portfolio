@@ -145,8 +145,8 @@ export const HalftoneGlobeCanvas: React.FC<HalftoneGlobeCanvasProps> = ({ classN
         ctx.arc(p.x, p.y, Math.max(0.6, p.radius), 0, Math.PI * 2);
 
         if (idx % 14 === 0 && p.z > 0.2) {
-          ctx.fillStyle = '#22c55e';
-          ctx.shadowColor = '#22c55e';
+          ctx.fillStyle = '#3b82f6';
+          ctx.shadowColor = '#3b82f6';
           ctx.shadowBlur = 6;
           ctx.fill();
           ctx.shadowBlur = 0;
@@ -157,7 +157,7 @@ export const HalftoneGlobeCanvas: React.FC<HalftoneGlobeCanvasProps> = ({ classN
       });
 
       // Central core crosshair indicator
-      ctx.strokeStyle = 'rgba(34, 197, 94, 0.4)';
+      ctx.strokeStyle = 'rgba(59, 130, 246, 0.4)';
       ctx.lineWidth = 1;
       const chSize = 8;
       ctx.beginPath();

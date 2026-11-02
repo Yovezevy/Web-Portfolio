@@ -306,7 +306,7 @@ export const ContinentalGlobeCanvas: React.FC<ContinentalGlobeCanvasProps> = ({
           }
         }
 
-        ctx.strokeStyle = '#22c55e';
+        ctx.strokeStyle = '#3b82f6';
         ctx.lineWidth = 1.6;
         ctx.setLineDash([4, 4]);
         ctx.lineDashOffset = -t * 12;
@@ -321,7 +321,7 @@ export const ContinentalGlobeCanvas: React.FC<ContinentalGlobeCanvasProps> = ({
             ctx.beginPath();
             ctx.arc(packetPt.x, packetPt.y, 3.5, 0, Math.PI * 2);
             ctx.fillStyle = '#f2f2ee';
-            ctx.shadowColor = '#22c55e';
+            ctx.shadowColor = '#3b82f6';
             ctx.shadowBlur = 8;
             ctx.fill();
             ctx.shadowBlur = 0;
@@ -341,16 +341,16 @@ export const ContinentalGlobeCanvas: React.FC<ContinentalGlobeCanvasProps> = ({
         const pulseSize = 4 + (Math.sin(t * 3) + 1) * 3;
 
         // Target Box
-        ctx.strokeStyle = isOrigin ? 'rgba(242, 242, 238, 0.9)' : '#22c55e';
+        ctx.strokeStyle = isOrigin ? 'rgba(242, 242, 238, 0.9)' : '#3b82f6';
         ctx.lineWidth = 1.2;
         ctx.strokeRect(pt.x - 5, pt.y - 5, 10, 10);
 
         // Outer pulse square
-        ctx.strokeStyle = isOrigin ? 'rgba(242, 242, 238, 0.3)' : 'rgba(34, 197, 94, 0.4)';
+        ctx.strokeStyle = isOrigin ? 'rgba(242, 242, 238, 0.3)' : 'rgba(59, 130, 246, 0.4)';
         ctx.strokeRect(pt.x - pulseSize, pt.y - pulseSize, pulseSize * 2, pulseSize * 2);
 
         // Center dot
-        ctx.fillStyle = isOrigin ? '#f2f2ee' : '#22c55e';
+        ctx.fillStyle = isOrigin ? '#f2f2ee' : '#3b82f6';
         ctx.fillRect(pt.x - 2, pt.y - 2, 4, 4);
 
         // Technical Label

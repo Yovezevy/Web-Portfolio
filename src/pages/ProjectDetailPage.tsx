@@ -31,14 +31,14 @@ export const ProjectDetailPage: React.FC = () => {
   if (!project) {
     return (
       <div className="min-h-screen pt-40 pb-24 px-6 md:px-12 bg-[#050505] text-[#f2f2ee] font-mono flex flex-col items-center justify-center text-center">
-        <span className="text-emerald-400 text-sm tracking-widest uppercase mb-4">ERROR 404 // NODE NOT FOUND</span>
+        <span className="text-blue-400 text-sm tracking-widest uppercase mb-4">ERROR 404 // NODE NOT FOUND</span>
         <h1 className="font-display text-5xl md:text-7xl mb-6">PROJECT DOES NOT EXIST</h1>
         <p className="text-[#8a8a86] max-w-md mb-8">
           The requested system architecture or repository slug is not indexed in the active routing table.
         </p>
         <Link
           to="/projects"
-          className="px-6 py-3 bg-[#f2f2ee] text-[#050505] font-bold text-xs uppercase tracking-widest rounded hover:bg-emerald-400 transition-colors"
+          className="px-6 py-3 bg-[#f2f2ee] text-[#050505] font-bold text-xs uppercase tracking-widest rounded hover:bg-blue-400 transition-colors"
         >
           RETURN TO PROJECT ARCHIVE
         </Link>
@@ -62,7 +62,7 @@ export const ProjectDetailPage: React.FC = () => {
           </Link>
 
           <div className="flex items-center gap-3 text-[#52524e]">
-            <span className="text-emerald-400 font-bold uppercase">{project.category}</span>
+            <span className="text-blue-400 font-bold uppercase">{project.category}</span>
             <span>•</span>
             <span>YEAR: {project.year}</span>
           </div>
@@ -70,8 +70,8 @@ export const ProjectDetailPage: React.FC = () => {
 
         {/* Hero Section */}
         <div className="mb-14">
-          <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 tracking-widest uppercase mb-4">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="flex items-center gap-2 text-xs font-mono text-blue-400 tracking-widest uppercase mb-4">
+            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
             <span>CASE STUDY &amp; ARCHITECTURE BLUEPRINT</span>
           </div>
 
@@ -99,7 +99,7 @@ export const ProjectDetailPage: React.FC = () => {
             </div>
             <div>
               <span className="text-[#52524e] uppercase block text-[10px] mb-1">DEPLOYMENT STATUS</span>
-              <span className="text-emerald-400 font-semibold">PRODUCTION ACTIVE</span>
+              <span className="text-blue-400 font-semibold">PRODUCTION ACTIVE</span>
             </div>
           </div>
 
@@ -122,7 +122,7 @@ export const ProjectDetailPage: React.FC = () => {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-3 bg-emerald-400 text-[#050505] font-bold hover:bg-emerald-300 transition-colors rounded uppercase tracking-wider"
+                className="flex items-center gap-2 px-5 py-3 bg-blue-400 text-[#050505] font-bold hover:bg-blue-300 transition-colors rounded uppercase tracking-wider"
               >
                 <ExternalLink className="w-4 h-4" />
                 <span>LAUNCH LIVE INTERFACE</span>
@@ -144,7 +144,7 @@ export const ProjectDetailPage: React.FC = () => {
                     <span className="font-mono text-[11px] text-[#8a8a86] uppercase mb-2">
                       {metric.label}
                     </span>
-                    <span className="font-display font-light text-4xl sm:text-5xl text-[#f2f2ee] tracking-tight leading-none tabular-nums text-emerald-400">
+                    <span className="font-display font-light text-4xl sm:text-5xl text-[#f2f2ee] tracking-tight leading-none tabular-nums text-blue-400">
                       {metric.value}
                     </span>
                   </div>
@@ -160,7 +160,7 @@ export const ProjectDetailPage: React.FC = () => {
             <div className="mb-16 p-8 md:p-10 bg-[#0d0d0d] border border-[rgba(242,242,238,0.1)] rounded-lg font-mono">
               <div className="flex items-center justify-between pb-6 border-b border-[rgba(242,242,238,0.08)] mb-8">
                 <div className="flex items-center gap-3">
-                  <Server className="w-5 h-5 text-emerald-400" />
+                  <Server className="w-5 h-5 text-blue-400" />
                   <h2 className="font-display text-3xl text-[#f2f2ee] tracking-wide">
                     SYSTEM TOPOLOGY &amp; DATA FLOW
                   </h2>
@@ -179,13 +179,13 @@ export const ProjectDetailPage: React.FC = () => {
                 {caseStudy.architecture.nodes.map((node) => (
                   <div
                     key={node.name}
-                    className="p-5 bg-[#121212] border border-[rgba(242,242,238,0.08)] rounded-md hover:border-emerald-400/40 transition-colors"
+                    className="p-5 bg-[#121212] border border-[rgba(242,242,238,0.08)] rounded-md hover:border-blue-400/40 transition-colors"
                   >
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-xs font-bold text-[#f2f2ee]">{node.name}</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
                     </div>
-                    <span className="text-[11px] text-emerald-400 block mb-1">{node.role}</span>
+                    <span className="text-[11px] text-blue-400 block mb-1">{node.role}</span>
                     <div className="flex justify-between text-[10px] text-[#52524e] pt-2 border-t border-[rgba(242,242,238,0.04)]">
                       <span>{node.type}</span>
                       <span className="text-[#8a8a86]">{node.status}</span>
@@ -196,13 +196,13 @@ export const ProjectDetailPage: React.FC = () => {
 
               {/* Step-by-Step Flow List */}
               <div className="p-6 bg-[#080808] border border-[rgba(242,242,238,0.06)] rounded-md">
-                <span className="text-[11px] text-emerald-400 uppercase tracking-widest block mb-4 font-bold">
+                <span className="text-[11px] text-blue-400 uppercase tracking-widest block mb-4 font-bold">
                   TRANSMISSION SEQUENCE // DATA PATH:
                 </span>
                 <div className="space-y-3 font-mono text-xs">
                   {caseStudy.architecture.flow.map((step, idx) => (
                     <div key={idx} className="flex items-start gap-3 text-[#8a8a86]">
-                      <span className="text-emerald-400 font-bold shrink-0">
+                      <span className="text-blue-400 font-bold shrink-0">
                         [0{idx + 1}]
                       </span>
                       <span>{step}</span>
@@ -253,7 +253,7 @@ export const ProjectDetailPage: React.FC = () => {
               <div className="h-full p-8 bg-[#0a0a0a] border border-[rgba(242,242,238,0.1)] rounded-lg flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[rgba(242,242,238,0.06)]">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                    <CheckCircle2 className="w-5 h-5 text-blue-400" />
                     <h3 className="font-display text-2xl text-[#f2f2ee] tracking-wide">
                       {caseStudy.solution.title}
                     </h3>
@@ -266,14 +266,14 @@ export const ProjectDetailPage: React.FC = () => {
                   <div className="space-y-3">
                     {caseStudy.solution.points.map((pt, i) => (
                       <div key={i} className="flex items-start gap-3 font-sans text-xs text-[#cccccc]">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                         <span>{pt}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-[rgba(242,242,238,0.06)] font-mono text-[11px] text-emerald-400">
+                <div className="mt-8 pt-4 border-t border-[rgba(242,242,238,0.06)] font-mono text-[11px] text-blue-400">
                   VERIFICATION: PASS (BENCHMARKED)
                 </div>
               </div>
@@ -285,7 +285,7 @@ export const ProjectDetailPage: React.FC = () => {
         {caseStudy && (
           <RevealWrapper delay={0.25}>
             <div className="mb-16 p-8 bg-[#0a0a0a] border border-[rgba(242,242,238,0.1)] rounded-lg font-mono">
-              <span className="text-xs text-emerald-400 uppercase tracking-widest block mb-6 font-bold">
+              <span className="text-xs text-blue-400 uppercase tracking-widest block mb-6 font-bold">
                 03 // ENGINEERING SPECIFICATIONS
               </span>
 
@@ -304,14 +304,14 @@ export const ProjectDetailPage: React.FC = () => {
         {/* Key Measurable Results */}
         {caseStudy && (
           <RevealWrapper delay={0.3}>
-            <div className="mb-20 p-8 bg-[#0d0d0d] border border-emerald-400/30 rounded-lg font-mono">
-              <span className="text-xs text-emerald-400 uppercase tracking-widest block mb-4 font-bold">
+            <div className="mb-20 p-8 bg-[#0d0d0d] border border-blue-400/30 rounded-lg font-mono">
+              <span className="text-xs text-blue-400 uppercase tracking-widest block mb-4 font-bold">
                 04 // PRODUCTION OUTCOMES &amp; DELIVERABLES
               </span>
               <div className="space-y-3 font-sans text-sm text-[#cccccc]">
                 {caseStudy.keyResults.map((res, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                     <span>{res}</span>
                   </div>
                 ))}
@@ -326,10 +326,10 @@ export const ProjectDetailPage: React.FC = () => {
             to={`/project/${prevProject.id}`}
             className="group p-5 bg-[#0a0a0a] border border-[rgba(242,242,238,0.08)] hover:border-[rgba(242,242,238,0.3)] rounded-lg flex items-center gap-4 transition-all flex-1"
           >
-            <ArrowLeft className="w-5 h-5 text-[#8a8a86] group-hover:-translate-x-1 group-hover:text-emerald-400 transition-transform" />
+            <ArrowLeft className="w-5 h-5 text-[#8a8a86] group-hover:-translate-x-1 group-hover:text-blue-400 transition-transform" />
             <div>
               <span className="text-[10px] text-[#52524e] uppercase block">PREVIOUS PROJECT</span>
-              <span className="text-sm text-[#f2f2ee] font-bold group-hover:text-emerald-300 transition-colors">
+              <span className="text-sm text-[#f2f2ee] font-bold group-hover:text-blue-300 transition-colors">
                 {prevProject.title}
               </span>
             </div>
@@ -337,15 +337,15 @@ export const ProjectDetailPage: React.FC = () => {
 
           <Link
             to={`/project/${nextProject.id}`}
-            className="group p-5 bg-[#0a0a0a] border border-[rgba(242,242,238,0.08)] hover:border-emerald-400/40 rounded-lg flex items-center justify-between sm:justify-end gap-4 transition-all flex-1 text-right"
+            className="group p-5 bg-[#0a0a0a] border border-[rgba(242,242,238,0.08)] hover:border-blue-400/40 rounded-lg flex items-center justify-between sm:justify-end gap-4 transition-all flex-1 text-right"
           >
             <div>
-              <span className="text-[10px] text-emerald-400 uppercase block font-bold">NEXT CASE STUDY</span>
-              <span className="text-sm text-[#f2f2ee] font-bold group-hover:text-emerald-300 transition-colors">
+              <span className="text-[10px] text-blue-400 uppercase block font-bold">NEXT CASE STUDY</span>
+              <span className="text-sm text-[#f2f2ee] font-bold group-hover:text-blue-300 transition-colors">
                 {nextProject.title}
               </span>
             </div>
-            <ArrowRight className="w-5 h-5 text-emerald-400 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-5 h-5 text-blue-400 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

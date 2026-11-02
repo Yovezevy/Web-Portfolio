@@ -134,7 +134,7 @@ export const RidgeLinesCanvas: React.FC<RidgeLinesCanvasProps> = ({ className = 
         }
 
         const alpha = 0.25 + progress * 0.65;
-        ctx.strokeStyle = i % 5 === 0 ? `rgba(34, 197, 94, ${alpha * 0.9})` : `rgba(242, 242, 238, ${alpha})`;
+        ctx.strokeStyle = i % 5 === 0 ? `rgba(59, 130, 246, ${alpha * 0.9})` : `rgba(242, 242, 238, ${alpha})`;
         ctx.lineWidth = i % 5 === 0 ? 1.5 : 1;
         ctx.stroke();
 
@@ -144,8 +144,8 @@ export const RidgeLinesCanvas: React.FC<RidgeLinesCanvasProps> = ({ className = 
           const peakY = baseY - 28;
           ctx.beginPath();
           ctx.arc(peakX, peakY, 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = '#22c55e';
-          ctx.shadowColor = '#22c55e';
+          ctx.fillStyle = '#3b82f6';
+          ctx.shadowColor = '#3b82f6';
           ctx.shadowBlur = 8;
           ctx.fill();
           ctx.shadowBlur = 0;

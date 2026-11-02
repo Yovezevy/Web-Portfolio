@@ -48,13 +48,13 @@ export const LabPage: React.FC<LabPageProps> = ({ onOpenTerminal }) => {
 
         {/* Page Header */}
         <div className="mb-14">
-          <div className="flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-emerald-400 mb-3">
+          <div className="flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-blue-400 mb-3">
             <Sparkles className="w-4 h-4" />
             <span>LABORATORY // EXPERIMENTS &amp; DISSECTIONS</span>
           </div>
           <h1 className="font-display font-light text-6xl md:text-8xl uppercase text-[#f2f2ee] tracking-tight">
             <KineticText>THE SITE, TAKEN</KineticText> <br />
-            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-[#f2f2ee]">
+            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-[#f2f2ee]">
               <KineticText delay={0.15}>APART PIECE BY PIECE</KineticText>
             </span>
           </h1>
@@ -75,13 +75,13 @@ export const LabPage: React.FC<LabPageProps> = ({ onOpenTerminal }) => {
                   <span className="text-[#52524e] text-[10px] uppercase block">DIAGNOSTIC TEST</span>
                   <span className="text-[#f2f2ee] font-semibold text-sm">LIVE ICMP EDGE PING BENCHMARK</span>
                   {pingResult && (
-                    <p className="text-emerald-400 text-xs mt-1.5 font-mono">{pingResult}</p>
+                    <p className="text-blue-400 text-xs mt-1.5 font-mono">{pingResult}</p>
                   )}
                 </div>
                 <button
                   onClick={runLivePingTest}
                   disabled={isPinging}
-                  className="px-5 py-2.5 bg-[#f2f2ee] text-[#050505] hover:bg-emerald-400 font-bold transition-colors rounded text-xs shrink-0 uppercase tracking-wider"
+                  className="px-5 py-2.5 bg-[#f2f2ee] text-[#050505] hover:bg-blue-400 font-bold transition-colors rounded text-xs shrink-0 uppercase tracking-wider"
                 >
                   {isPinging ? 'TESTING...' : 'RUN PING TEST'}
                 </button>
@@ -92,7 +92,7 @@ export const LabPage: React.FC<LabPageProps> = ({ onOpenTerminal }) => {
             <div className="lg:col-span-4 flex flex-col justify-between p-8 bg-[#0a0a0a] border border-[rgba(242,242,238,0.1)] rounded-lg">
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <Terminal className="w-6 h-6 text-emerald-400" />
+                  <Terminal className="w-6 h-6 text-blue-400" />
                   <h3 className="font-display text-3xl text-[#f2f2ee]">PSEUDO-BASH CLI</h3>
                 </div>
                 <p className="font-sans text-sm text-[#8a8a86] leading-relaxed mb-6">
@@ -100,15 +100,15 @@ export const LabPage: React.FC<LabPageProps> = ({ onOpenTerminal }) => {
                 </p>
 
                 <div className="p-4 bg-[#111111] rounded border border-[rgba(242,242,238,0.06)] font-mono text-xs space-y-2 text-[#8a8a86] mb-6">
-                  <p><span className="text-emerald-400">$</span> ping 1.1.1.1</p>
-                  <p><span className="text-emerald-400">$</span> traceroute gateway</p>
-                  <p><span className="text-emerald-400">$</span> show ip route</p>
+                  <p><span className="text-blue-400">$</span> ping 1.1.1.1</p>
+                  <p><span className="text-blue-400">$</span> traceroute gateway</p>
+                  <p><span className="text-blue-400">$</span> show ip route</p>
                 </div>
               </div>
 
               <button
                 onClick={onOpenTerminal}
-                className="w-full py-3.5 bg-emerald-400 text-[#050505] font-bold text-xs font-mono uppercase tracking-widest rounded hover:bg-emerald-300 transition-colors"
+                className="w-full py-3.5 bg-blue-400 text-[#050505] font-bold text-xs font-mono uppercase tracking-widest rounded hover:bg-blue-300 transition-colors"
               >
                 LAUNCH TERMINAL NOW
               </button>
@@ -130,7 +130,7 @@ export const LabPage: React.FC<LabPageProps> = ({ onOpenTerminal }) => {
         {/* Component Autopsies Grid */}
         <div className="mb-12">
           <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[rgba(242,242,238,0.08)] mb-8 font-mono text-xs">
-            <span className="text-xs uppercase tracking-widest text-emerald-400">
+            <span className="text-xs uppercase tracking-widest text-blue-400">
               DISSECTED COMPONENTS // 0{filteredExperiments.length} ENTRIES
             </span>
 
@@ -158,13 +158,13 @@ export const LabPage: React.FC<LabPageProps> = ({ onOpenTerminal }) => {
                   onClick={() => setSelectedExperiment(exp)}
                   className={`p-6 rounded-lg border cursor-pointer transition-all ${
                     selectedExperiment.id === exp.id
-                      ? 'bg-[#121212] border-emerald-400/60 shadow-xl'
+                      ? 'bg-[#121212] border-blue-400/60 shadow-xl'
                       : 'bg-[#0a0a0a] border-[rgba(242,242,238,0.08)] hover:border-[rgba(242,242,238,0.2)]'
                   }`}
                 >
                   <div className="flex items-center justify-between text-xs font-mono mb-3">
                     <span className="text-[#f2f2ee] text-base font-bold">{exp.title}</span>
-                    <span className="px-2.5 py-1 rounded text-[10px] bg-[rgba(242,242,238,0.04)] text-emerald-400 border border-[rgba(242,242,238,0.08)] uppercase">
+                    <span className="px-2.5 py-1 rounded text-[10px] bg-[rgba(242,242,238,0.04)] text-blue-400 border border-[rgba(242,242,238,0.08)] uppercase">
                       {exp.type}
                     </span>
                   </div>
@@ -172,7 +172,7 @@ export const LabPage: React.FC<LabPageProps> = ({ onOpenTerminal }) => {
                     {exp.description}
                   </p>
                   <div className="p-3 bg-[#070707] rounded border border-[rgba(242,242,238,0.04)] text-xs font-mono text-[#52524e] flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                     <span className="leading-relaxed">
                       <strong className="text-[#8a8a86]">Verdict:</strong> {exp.verdict}
                     </span>

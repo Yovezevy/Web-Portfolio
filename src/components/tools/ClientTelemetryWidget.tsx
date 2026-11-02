@@ -110,7 +110,7 @@ export const ClientTelemetryWidget: React.FC = () => {
         {/* Connection Type */}
         <div className="p-4 bg-[#050505] border border-[rgba(242,242,238,0.08)] rounded flex flex-col justify-between">
           <div className="flex items-center gap-2 text-[#8a8a86] mb-2 uppercase text-[10px]">
-            <Wifi className="w-3.5 h-3.5 text-emerald-400" />
+            <Wifi className="w-3.5 h-3.5 text-blue-400" />
             <span>CONNECTION TYPE</span>
           </div>
           <span className="text-sm md:text-base text-[#f2f2ee] font-bold uppercase">
@@ -165,8 +165,8 @@ export const ClientTelemetryWidget: React.FC = () => {
             <span className="text-[10px] text-[#8a8a86] uppercase tracking-widest block mb-1">
               EDGE ANYCAST PING BENCHMARK
             </span>
-            <div className="text-sm font-bold text-emerald-400 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="text-sm font-bold text-blue-400 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
               <span>{statusText}</span>
             </div>
           </div>
@@ -177,7 +177,7 @@ export const ClientTelemetryWidget: React.FC = () => {
               disabled={isTesting}
               className={`px-3 py-1.5 rounded text-xs transition-all flex items-center gap-2 border ${
                 targetEndpoint === 'cloudflare'
-                  ? 'border-emerald-400 bg-emerald-500/10 text-emerald-400'
+                  ? 'border-blue-400 bg-blue-500/10 text-blue-400'
                   : 'border-[rgba(242,242,238,0.15)] text-[#8a8a86] hover:text-[#f2f2ee]'
               }`}
             >
@@ -204,7 +204,7 @@ export const ClientTelemetryWidget: React.FC = () => {
         <div className="pt-2">
           <div className="flex justify-between text-[10px] text-[#52524e] mb-2 uppercase">
             <span>HISTORICAL TRANSIT LATENCY</span>
-            <span>LATEST: <strong className="text-emerald-400">{currentPing || pingHistory[pingHistory.length - 1]} ms</strong></span>
+            <span>LATEST: <strong className="text-blue-400">{currentPing || pingHistory[pingHistory.length - 1]} ms</strong></span>
           </div>
           <div className="flex items-end gap-2 h-14 bg-[#090909] p-2 rounded border border-[rgba(242,242,238,0.06)]">
             {pingHistory.map((val, idx) => {
@@ -212,7 +212,7 @@ export const ClientTelemetryWidget: React.FC = () => {
               return (
                 <div key={idx} className="flex-1 flex flex-col items-center justify-end h-full group relative">
                   <div
-                    className="w-full bg-emerald-500/30 hover:bg-emerald-400 border-t-2 border-emerald-400 transition-all rounded-t-sm"
+                    className="w-full bg-blue-500/30 hover:bg-blue-400 border-t-2 border-blue-400 transition-all rounded-t-sm"
                     style={{ height: `${heightPercent}%` }}
                   />
                   <span className="opacity-0 group-hover:opacity-100 absolute -top-5 text-[9px] text-[#f2f2ee] bg-[#050505] px-1 rounded transition-opacity pointer-events-none">

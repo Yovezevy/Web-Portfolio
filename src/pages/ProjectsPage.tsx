@@ -36,12 +36,12 @@ export const ProjectsPage: React.FC = () => {
 
         {/* Page Header */}
         <div className="mb-14">
-          <span className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-3 block">
+          <span className="font-mono text-xs tracking-widest uppercase text-blue-400 mb-3 block">
             ARCHIVE // 0{projectsData.length} TOTAL REPOSITORIES
           </span>
           <h1 className="font-display font-light text-6xl md:text-8xl uppercase text-[#f2f2ee] tracking-tight">
             <KineticText>PROJECT INDEX</KineticText> <br />
-            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#f2f2ee] via-emerald-300 to-[#8a8a86]">
+            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#f2f2ee] via-blue-300 to-[#8a8a86]">
               <KineticText delay={0.15}>&amp; CASE STUDIES</KineticText>
             </span>
           </h1>
@@ -77,7 +77,7 @@ export const ProjectsPage: React.FC = () => {
               placeholder="Search protocol or tech (e.g. BGP, React)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-[#0f0f0f] border border-[rgba(242,242,238,0.1)] focus:border-emerald-400 pl-9 pr-4 py-2 rounded text-xs text-[#f2f2ee] outline-none w-full md:w-72 font-mono transition-colors"
+              className="bg-[#0f0f0f] border border-[rgba(242,242,238,0.1)] focus:border-blue-400 pl-9 pr-4 py-2 rounded text-xs text-[#f2f2ee] outline-none w-full md:w-72 font-mono transition-colors"
             />
           </div>
         </div>
@@ -88,18 +88,18 @@ export const ProjectsPage: React.FC = () => {
             <RevealWrapper key={project.id} delay={idx * 0.1}>
               <div
                 data-cursor="CASE STUDY"
-                className="group h-full p-8 md:p-10 bg-[#0a0a0a] border border-[rgba(242,242,238,0.1)] hover:border-emerald-400/40 hover:-translate-y-1 transition-all duration-300 rounded-lg flex flex-col justify-between"
+                className="group h-full p-8 md:p-10 bg-[#0a0a0a] border border-[rgba(242,242,238,0.1)] hover:border-blue-400/40 hover:-translate-y-1 transition-all duration-300 rounded-lg flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between text-xs font-mono text-[#8a8a86] mb-4">
-                    <span className="text-emerald-400 font-bold">{project.year}</span>
+                    <span className="text-blue-400 font-bold">{project.year}</span>
                     <span className="px-2 py-0.5 rounded bg-[rgba(242,242,238,0.04)] border border-[rgba(242,242,238,0.08)]">
                       {project.category}
                     </span>
                   </div>
 
                   <Link to={`/project/${project.id}`}>
-                    <h2 className="font-display text-3xl md:text-4xl text-[#f2f2ee] tracking-wide mb-2 group-hover:text-emerald-300 transition-colors">
+                    <h2 className="font-display text-3xl md:text-4xl text-[#f2f2ee] tracking-wide mb-2 group-hover:text-blue-300 transition-colors">
                       {project.title}
                     </h2>
                   </Link>
@@ -116,7 +116,7 @@ export const ProjectsPage: React.FC = () => {
                       {project.metrics.map((m) => (
                         <div key={m.label}>
                           <span className="text-[10px] text-[#52524e] uppercase block">{m.label}</span>
-                          <span className="text-emerald-400 font-semibold">{m.value}</span>
+                          <span className="text-blue-400 font-semibold">{m.value}</span>
                         </div>
                       ))}
                     </div>
@@ -152,7 +152,7 @@ export const ProjectsPage: React.FC = () => {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 transition-colors"
+                        className="flex items-center gap-1.5 text-blue-400 hover:text-blue-300 transition-colors"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
                         <span>LIVE</span>
@@ -165,7 +165,7 @@ export const ProjectsPage: React.FC = () => {
                     className="flex items-center gap-1 text-[#8a8a86] hover:text-[#f2f2ee] transition-colors"
                   >
                     <span>CASE STUDY</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-emerald-400" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-blue-400" />
                   </Link>
                 </div>
               </div>
@@ -184,7 +184,7 @@ export const ProjectsPage: React.FC = () => {
                 [CLOSE ×]
               </button>
 
-              <span className="text-xs text-emerald-400 tracking-widest uppercase block mb-1">
+              <span className="text-xs text-blue-400 tracking-widest uppercase block mb-1">
                 {selectedProject.category} // {selectedProject.year}
               </span>
               <h2 className="font-display text-4xl text-[#f2f2ee] mb-4">
@@ -200,7 +200,7 @@ export const ProjectsPage: React.FC = () => {
                   {selectedProject.metrics.map((m) => (
                     <div key={m.label}>
                       <span className="text-[#52524e] uppercase block text-[10px]">{m.label}</span>
-                      <span className="text-emerald-400 text-sm font-semibold">{m.value}</span>
+                      <span className="text-blue-400 text-sm font-semibold">{m.value}</span>
                     </div>
                   ))}
                 </div>
@@ -233,7 +233,7 @@ export const ProjectsPage: React.FC = () => {
                     href={selectedProject.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-emerald-400 text-[#050505] font-bold hover:bg-emerald-300 transition-all rounded uppercase tracking-wider"
+                    className="px-4 py-2 bg-blue-400 text-[#050505] font-bold hover:bg-blue-300 transition-all rounded uppercase tracking-wider"
                   >
                     LAUNCH DEMO
                   </a>

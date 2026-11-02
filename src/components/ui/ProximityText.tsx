@@ -40,7 +40,7 @@ export const ProximityText: React.FC<ProximityTextProps> = ({
           {Array.from(word).map((char, charIndex) => (
             <span
               key={charIndex}
-              className="char inline-block transition-transform duration-75 hover:text-emerald-300"
+              className="char inline-block transition-transform duration-75 hover:text-blue-300"
             >
               {char}
             </span>

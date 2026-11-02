@@ -110,8 +110,8 @@ export const TopologyCanvas: React.FC = () => {
         // Glowing packet dot
         ctx.beginPath();
         ctx.arc(px, py, 3, 0, Math.PI * 2);
-        ctx.fillStyle = '#22c55e';
-        ctx.shadowColor = '#22c55e';
+        ctx.fillStyle = '#3b82f6';
+        ctx.shadowColor = '#3b82f6';
         ctx.shadowBlur = 8;
         ctx.fill();
         ctx.shadowBlur = 0;
@@ -129,7 +129,7 @@ export const TopologyCanvas: React.FC = () => {
         // Node circle
         ctx.beginPath();
         ctx.arc(node.x, node.y, 6, 0, Math.PI * 2);
-        ctx.fillStyle = node.type === 'router' ? '#38bdf8' : node.type === 'edge' ? '#22c55e' : '#f2f2ee';
+        ctx.fillStyle = node.type === 'router' ? '#38bdf8' : node.type === 'edge' ? '#3b82f6' : '#f2f2ee';
         ctx.fill();
 
         // Outer pulse ring
@@ -160,13 +160,13 @@ export const TopologyCanvas: React.FC = () => {
     <div className="border border-[rgba(242,242,238,0.12)] bg-[#0d0d0d] p-5 rounded-lg flex flex-col font-mono">
       <div className="flex items-center justify-between pb-3 border-b border-[rgba(242,242,238,0.08)] mb-3">
         <div className="flex items-center gap-2">
-          <Network className="w-4 h-4 text-emerald-400" />
+          <Network className="w-4 h-4 text-blue-400" />
           <span className="text-xs text-[#f2f2ee] font-semibold tracking-wider uppercase">
             LIVE MESH TOPOLOGY VISUALIZER
           </span>
         </div>
         <div className="text-[11px] text-[#8a8a86] flex items-center gap-3">
-          <span className="text-emerald-400">PACKETS ROUTED: {packetCount}</span>
+          <span className="text-blue-400">PACKETS ROUTED: {packetCount}</span>
           <span className="text-[#52524e]">•</span>
           <span>PROTOCOL: MESH_OVERLAY</span>
         </div>

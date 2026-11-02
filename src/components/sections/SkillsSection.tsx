@@ -37,7 +37,7 @@ export const SkillsSection: React.FC = () => {
                 <div>
                   {/* Category Header Row: Title & Number */}
                   <div className="mb-5 flex items-center justify-between">
-                    <h3 className="font-mono text-[12px] uppercase tracking-[0.12em] text-[#f2f2ee] font-bold group-hover:text-emerald-400 transition-colors">
+                    <h3 className="font-mono text-[12px] uppercase tracking-[0.12em] text-[#f2f2ee] font-bold group-hover:text-blue-400 transition-colors">
                       {category.title}
                     </h3>
                     <span className="font-mono text-[11px] text-[#52524e] tracking-wider">

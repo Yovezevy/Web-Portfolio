@@ -104,7 +104,7 @@ export const SubnetCalculator: React.FC = () => {
       {/* Tool Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-[rgba(242,242,238,0.08)] gap-4">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+          <div className="p-2 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400">
             <Network className="w-5 h-5" />
           </div>
           <div>
@@ -118,8 +118,8 @@ export const SubnetCalculator: React.FC = () => {
         </div>
 
         {/* Status Badge */}
-        <div className="flex items-center gap-2 text-xs text-emerald-400">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        <div className="flex items-center gap-2 text-xs text-blue-400">
+          <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
           <span>CISCO CCNA / MIKROTIK MTCRE STANDARD</span>
         </div>
       </div>
@@ -136,7 +136,7 @@ export const SubnetCalculator: React.FC = () => {
             value={ipInput}
             onChange={(e) => setIpInput(e.target.value)}
             placeholder="e.g. 192.168.10.1"
-            className="w-full bg-[#050505] border border-[rgba(242,242,238,0.18)] focus:border-emerald-400 px-4 py-2.5 rounded text-sm text-[#f2f2ee] outline-none transition-colors"
+            className="w-full bg-[#050505] border border-[rgba(242,242,238,0.18)] focus:border-blue-400 px-4 py-2.5 rounded text-sm text-[#f2f2ee] outline-none transition-colors"
           />
         </div>
 
@@ -144,10 +144,10 @@ export const SubnetCalculator: React.FC = () => {
         <div className="md:col-span-6 flex flex-col justify-center">
           <div className="flex justify-between items-center mb-2 text-xs uppercase tracking-widest text-[#8a8a86]">
             <div className="flex items-center gap-2">
-              <Sliders className="w-3.5 h-3.5 text-emerald-400" />
+              <Sliders className="w-3.5 h-3.5 text-blue-400" />
               <span>CIDR Prefix:</span>
             </div>
-            <span className="text-sm text-emerald-400 font-bold tabular-nums">
+            <span className="text-sm text-blue-400 font-bold tabular-nums">
               /{cidr} ({calculation?.subnetMask || '255.255.255.0'})
             </span>
           </div>
@@ -158,7 +158,7 @@ export const SubnetCalculator: React.FC = () => {
             step="1"
             value={cidr}
             onChange={(e) => setCidr(parseInt(e.target.value, 10))}
-            className="w-full h-1.5 bg-[rgba(242,242,238,0.15)] rounded-lg appearance-none cursor-pointer accent-emerald-400"
+            className="w-full h-1.5 bg-[rgba(242,242,238,0.15)] rounded-lg appearance-none cursor-pointer accent-blue-400"
           />
         </div>
       </div>
@@ -190,12 +190,12 @@ export const SubnetCalculator: React.FC = () => {
                 <span className="text-[10px] text-[#8a8a86] uppercase tracking-widest">NETWORK ID</span>
                 <button
                   onClick={() => copyToClipboard('net', calculation.networkAddress)}
-                  className="text-[#52524e] hover:text-emerald-400 transition-colors"
+                  className="text-[#52524e] hover:text-blue-400 transition-colors"
                 >
-                  {copiedKey === 'net' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                  {copiedKey === 'net' ? <Check className="w-3.5 h-3.5 text-blue-400" /> : <Copy className="w-3.5 h-3.5" />}
                 </button>
               </div>
-              <span className="text-base text-emerald-400 font-bold tabular-nums">
+              <span className="text-base text-blue-400 font-bold tabular-nums">
                 {calculation.networkAddress}
               </span>
             </div>
@@ -206,9 +206,9 @@ export const SubnetCalculator: React.FC = () => {
                 <span className="text-[10px] text-[#8a8a86] uppercase tracking-widest">BROADCAST ID</span>
                 <button
                   onClick={() => copyToClipboard('bcast', calculation.broadcastAddress)}
-                  className="text-[#52524e] hover:text-emerald-400 transition-colors"
+                  className="text-[#52524e] hover:text-blue-400 transition-colors"
                 >
-                  {copiedKey === 'bcast' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                  {copiedKey === 'bcast' ? <Check className="w-3.5 h-3.5 text-blue-400" /> : <Copy className="w-3.5 h-3.5" />}
                 </button>
               </div>
               <span className="text-base text-[#f2f2ee] font-bold tabular-nums">
@@ -248,7 +248,7 @@ export const SubnetCalculator: React.FC = () => {
               <span className="text-[#8a8a86] block text-[10px] uppercase tracking-widest mb-1">
                 ROUTING SCOPE
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] bg-blue-500/10 text-blue-400 border border-blue-500/20">
                 <CheckCircle2 className="w-3 h-3" />
                 <span>{calculation.scope}</span>
               </span>
@@ -274,7 +274,7 @@ export const SubnetCalculator: React.FC = () => {
                           return (
                             <span
                               key={bitIdx}
-                              className={globalIdx < cidr ? 'text-emerald-400 font-bold' : 'text-[#52524e]'}
+                              className={globalIdx < cidr ? 'text-blue-400 font-bold' : 'text-[#52524e]'}
                             >
                               {bit}
                             </span>
@@ -299,7 +299,7 @@ export const SubnetCalculator: React.FC = () => {
                           return (
                             <span
                               key={bitIdx}
-                              className={globalIdx < cidr ? 'text-emerald-400' : 'text-[#8a8a86]'}
+                              className={globalIdx < cidr ? 'text-blue-400' : 'text-[#8a8a86]'}
                             >
                               {bit}
                             </span>

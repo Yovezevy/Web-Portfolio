@@ -59,14 +59,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenCommandPal
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Left: Logo / Monogram */}
         <Link to="/" className="flex items-center gap-3 group">
-          <span className="font-display text-2xl tracking-wider text-[#f2f2ee] font-bold group-hover:text-emerald-400 transition-colors">
+          <span className="font-display text-2xl tracking-wider text-[#f2f2ee] font-bold group-hover:text-blue-400 transition-colors">
             <ScrambleText>NET//DEV</ScrambleText>
           </span>
           <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] tracking-widest bg-[rgba(242,242,238,0.05)] border border-[rgba(242,242,238,0.1)] text-[#8a8a86]">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
             <span>{t('navOnline')}</span>
             <span className="text-[#52524e]">•</span>
-            <span className="text-emerald-400">{simulatedPing}ms</span>
+            <span className="text-blue-400">{simulatedPing}ms</span>
           </span>
         </Link>
 
@@ -80,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenCommandPal
                 to={link.to}
                 className={`transition-colors relative py-1 ${
                   isActive ? 'text-[#f2f2ee] font-bold' : 'hover:text-[#f2f2ee]'
-                } after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1px] after:bg-emerald-400 after:transition-all after:duration-300 ${
+                } after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1px] after:bg-blue-400 after:transition-all after:duration-300 ${
                   isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full'
                 }`}
               >
@@ -99,7 +99,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenCommandPal
               className="hidden sm:flex items-center gap-2 px-2.5 py-1 text-xs border border-[rgba(242,242,238,0.15)] bg-[rgba(242,242,238,0.03)] hover:bg-[#f2f2ee] hover:text-[#050505] transition-all rounded text-[#8a8a86] hover:border-[#f2f2ee] group"
               title="Open Command Palette (Ctrl+K)"
             >
-              <Search className="w-3.5 h-3.5 text-emerald-400 group-hover:text-[#050505] transition-colors" />
+              <Search className="w-3.5 h-3.5 text-blue-400 group-hover:text-[#050505] transition-colors" />
               <span className="text-[10px] font-mono tracking-wider font-semibold">
                 CTRL K
               </span>
@@ -112,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenCommandPal
             className="flex items-center gap-1.5 px-2.5 py-1 text-xs border border-[rgba(242,242,238,0.15)] bg-[rgba(242,242,238,0.03)] hover:bg-[#f2f2ee] hover:text-[#050505] transition-all rounded text-[#8a8a86] hover:border-[#f2f2ee]"
             title="Toggle Language (EN / ID)"
           >
-            <Languages className="w-3.5 h-3.5 text-emerald-400" />
+            <Languages className="w-3.5 h-3.5 text-blue-400" />
             <span className="text-[11px] font-mono font-bold uppercase">
               {lang === 'en' ? 'EN' : 'ID'}
             </span>
@@ -159,7 +159,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenCommandPal
           {onOpenCommandPalette && (
             <button
               onClick={() => { setMobileMenuOpen(false); onOpenCommandPalette(); }}
-              className="py-2 flex items-center justify-between text-left text-emerald-400 border-b border-[rgba(242,242,238,0.05)] uppercase"
+              className="py-2 flex items-center justify-between text-left text-blue-400 border-b border-[rgba(242,242,238,0.05)] uppercase"
             >
               <span>SEARCH / COMMAND PALETTE</span>
               <span>CTRL K</span>
@@ -177,7 +177,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenCommandPal
           ))}
           <div className="pt-2 flex items-center justify-between text-[11px] text-[#52524e]">
             <span>ROUTER: 192.168.1.1</span>
-            <span className="text-emerald-400">LANG: {lang.toUpperCase()}</span>
+            <span className="text-blue-400">LANG: {lang.toUpperCase()}</span>
           </div>
         </div>
       )}

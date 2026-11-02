@@ -257,7 +257,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       >
         {/* Search Input Bar */}
         <div className="flex items-center gap-3 px-5 py-4 border-b border-[rgba(242,242,238,0.1)] bg-[#111111]">
-          <Search className="w-5 h-5 text-emerald-400 shrink-0" />
+          <Search className="w-5 h-5 text-blue-400 shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -296,14 +296,14 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                   onMouseEnter={() => setSelectedIndex(idx)}
                   className={`p-3 rounded-md flex items-center justify-between cursor-pointer transition-all ${
                     isSelected
-                      ? 'bg-emerald-400/15 border border-emerald-400/40 text-[#f2f2ee]'
+                      ? 'bg-blue-400/15 border border-blue-400/40 text-[#f2f2ee]'
                       : 'hover:bg-[rgba(242,242,238,0.04)] text-[#8a8a86] border border-transparent'
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className={`p-2 rounded ${
-                        isSelected ? 'bg-emerald-400 text-[#050505]' : 'bg-[rgba(242,242,238,0.05)] text-[#8a8a86]'
+                        isSelected ? 'bg-blue-400 text-[#050505]' : 'bg-[rgba(242,242,238,0.05)] text-[#8a8a86]'
                       }`}
                     >
                       <Icon className="w-4 h-4" />
@@ -322,7 +322,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                   </div>
 
                   {isSelected && (
-                    <span className="text-[10px] text-emerald-400 uppercase tracking-widest font-bold hidden sm:inline">
+                    <span className="text-[10px] text-blue-400 uppercase tracking-widest font-bold hidden sm:inline">
                       SELECT ↵
                     </span>
                   )}

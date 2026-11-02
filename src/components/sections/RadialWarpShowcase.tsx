@@ -63,7 +63,7 @@ export const RadialWarpShowcase: React.FC = () => {
         <div className="pt-20 pb-8 border-b border-[rgba(242,242,238,0.08)] flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <div className="flex items-center gap-3 text-xs tracking-widest text-[#8a8a86] uppercase mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
               <span>CORE ARCHITECTURES & SYSTEMS</span>
             </div>
             <MaskedHeading
@@ -104,7 +104,7 @@ export const RadialWarpShowcase: React.FC = () => {
 
                         {/* Top Indicator Badge */}
                         <div className="absolute top-4 left-5 flex items-center gap-2 text-[10px] tracking-widest text-[#8a8a86] uppercase select-none pointer-events-none bg-[#050505]/70 backdrop-blur-sm px-2.5 py-1 rounded border border-[rgba(242,242,238,0.08)]">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
                           <span>{pillar.tag}</span>
                         </div>
 
@@ -126,9 +126,9 @@ export const RadialWarpShowcase: React.FC = () => {
                       <div>
                         {/* Category & Pillar Number */}
                         <div className="flex items-center gap-3 text-xs tracking-widest text-[#8a8a86] uppercase mb-4">
-                          <span className="text-emerald-400 font-bold">{pillar.number}</span>
+                          <span className="text-blue-400 font-bold">{pillar.number}</span>
                           <span className="text-[#52524e]">·</span>
-                          <Icon className="w-3.5 h-3.5 text-emerald-400" />
+                          <Icon className="w-3.5 h-3.5 text-blue-400" />
                           <span>{pillar.category}</span>
                         </div>
 

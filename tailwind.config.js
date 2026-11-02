@@ -19,7 +19,7 @@ export default {
           muted: '#52524e',
         },
         network: {
-          active: '#22c55e',
+          active: '#3b82f6',
           latency: '#10b981',
           router: '#38bdf8',
           gateway: '#a855f7',

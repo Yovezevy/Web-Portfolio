@@ -16,7 +16,7 @@ export const MetricsBar: React.FC = () => {
               <span className="font-mono text-[11px] tracking-widest text-[#8a8a86] uppercase mb-2">
                 {metric.label}
               </span>
-              <span className="font-display font-light text-4xl sm:text-5xl lg:text-6xl text-[#f2f2ee] tracking-tight leading-none tabular-nums hover:text-emerald-400 transition-colors cursor-default">
+              <span className="font-display font-light text-4xl sm:text-5xl lg:text-6xl text-[#f2f2ee] tracking-tight leading-none tabular-nums hover:text-blue-400 transition-colors cursor-default">
                 {metric.value}
               </span>
               <span className="font-mono text-xs text-[#52524e] mt-2">

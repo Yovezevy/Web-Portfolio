@@ -59,7 +59,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       {/* Top Header */}
       <div className="flex justify-between items-center text-xs tracking-widest uppercase text-[#8a8a86]">
         <div className="flex items-center gap-2">
-          <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="inline-block w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
           <span>NET_KERNEL_v4.19 // BOOTLOADER</span>
         </div>
         <div className="hidden sm:block">
@@ -74,7 +74,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           <span className="text-3xl md:text-6xl text-[#8a8a86] font-mono ml-2">%</span>
         </div>
         <p className="font-mono text-xs md:text-sm tracking-wider text-[#8a8a86] mt-4 flex items-center gap-3">
-          <span className="text-emerald-400 font-bold">&gt;&gt;</span>
+          <span className="text-blue-400 font-bold">&gt;&gt;</span>
           <span>{systemMessages[messageIndex]}</span>
         </p>
       </div>

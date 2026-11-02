@@ -96,8 +96,8 @@ export const CustomCursor: React.FC = () => {
           cursorText
             ? 'w-[84px] h-[84px] bg-[#f2f2ee] text-[#050505] shadow-[0_0_35px_rgba(242,242,238,0.25)] scale-100'
             : isPointer
-            ? 'w-10 h-10 border border-emerald-400 bg-emerald-400/20 backdrop-blur-xs scale-100'
-            : 'w-2 h-2 bg-emerald-400 scale-100'
+            ? 'w-10 h-10 border border-blue-400 bg-blue-400/20 backdrop-blur-xs scale-100'
+            : 'w-2 h-2 bg-blue-400 scale-100'
         }`}
       >
         {cursorText && (
@@ -119,7 +119,7 @@ export const CustomCursor: React.FC = () => {
       {!cursorText && (
         <div
           className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(242,242,238,0.25)] transition-all duration-300 ${
-            isPointer ? 'w-12 h-12 border-emerald-400/40 opacity-40' : 'w-7 h-7 opacity-80'
+            isPointer ? 'w-12 h-12 border-blue-400/40 opacity-40' : 'w-7 h-7 opacity-80'
           }`}
         />
       )}

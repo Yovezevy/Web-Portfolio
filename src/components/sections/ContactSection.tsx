@@ -33,7 +33,7 @@ export const ContactSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-16">
-          <span className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-3 block">
+          <span className="font-mono text-xs tracking-widest uppercase text-blue-400 mb-3 block">
             {t('contactTag')}
           </span>
           <MaskedHeading
@@ -42,7 +42,7 @@ export const ContactSection: React.FC = () => {
           >
             INITIATE CONNECTION
           </MaskedHeading>
-          <div className="font-display font-extrabold text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-[#f2f2ee] to-[#8a8a86] tracking-tight leading-[0.88]">
+          <div className="font-display font-extrabold text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-[#f2f2ee] to-[#8a8a86] tracking-tight leading-[0.88]">
             <ProximityText minWeight={350} maxWeight={900} radius={320}>
               DISCUSS INFRASTRUCTURE
             </ProximityText>
@@ -65,7 +65,7 @@ export const ContactSection: React.FC = () => {
                   </span>
                   <a
                     href={`mailto:${profileData.email}`}
-                    className="text-base sm:text-lg text-[#f2f2ee] hover:text-emerald-400 transition-colors font-medium"
+                    className="text-base sm:text-lg text-[#f2f2ee] hover:text-blue-400 transition-colors font-medium"
                   >
                     {profileData.email}
                   </a>
@@ -76,7 +76,7 @@ export const ContactSection: React.FC = () => {
                     href="https://wa.me/6282255176697?text=Halo%20Muhammad%20Ihsan,%20saya%20melihat%20portofolio%20Anda"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-400 hover:text-[#050505] text-xs text-emerald-400 transition-all rounded uppercase tracking-wider font-semibold"
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/30 hover:bg-blue-400 hover:text-[#050505] text-xs text-blue-400 transition-all rounded uppercase tracking-wider font-semibold"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>WHATSAPP</span>
@@ -88,7 +88,7 @@ export const ContactSection: React.FC = () => {
                   >
                     {copied ? (
                       <>
-                        <Check className="w-4 h-4 text-emerald-400" />
+                        <Check className="w-4 h-4 text-blue-400" />
                         <span>{t('contactCopied')}</span>
                       </>
                     ) : (
@@ -109,10 +109,10 @@ export const ContactSection: React.FC = () => {
                     href={soc.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-4 bg-[#0a0a0a] border border-[rgba(242,242,238,0.08)] hover:border-emerald-400/50 rounded flex items-center justify-between text-xs text-[#8a8a86] hover:text-[#f2f2ee] transition-all group"
+                    className="p-4 bg-[#0a0a0a] border border-[rgba(242,242,238,0.08)] hover:border-blue-400/50 rounded flex items-center justify-between text-xs text-[#8a8a86] hover:text-[#f2f2ee] transition-all group"
                   >
                     <span>{soc.label}</span>
-                    <ArrowUpRight className="w-4 h-4 group-hover:text-emerald-400 transition-colors" />
+                    <ArrowUpRight className="w-4 h-4 group-hover:text-blue-400 transition-colors" />
                   </a>
                 ))}
               </div>
@@ -120,7 +120,7 @@ export const ContactSection: React.FC = () => {
 
             {/* Status & Availability */}
             <div className="pt-6 border-t border-[rgba(242,242,238,0.06)] text-xs text-[#52524e] flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
               <span>CURRENT STATUS: {profileData.availability}</span>
             </div>
           </div>
@@ -147,7 +147,7 @@ export const ContactSection: React.FC = () => {
                     placeholder="e.g. Alex Carter (Lead Architect)"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-[#111111] border border-[rgba(242,242,238,0.1)] focus:border-emerald-400 px-4 py-3 text-xs text-[#f2f2ee] rounded outline-none transition-colors"
+                    className="w-full bg-[#111111] border border-[rgba(242,242,238,0.1)] focus:border-blue-400 px-4 py-3 text-xs text-[#f2f2ee] rounded outline-none transition-colors"
                   />
                 </div>
 
@@ -161,7 +161,7 @@ export const ContactSection: React.FC = () => {
                     placeholder="name@domain.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-[#111111] border border-[rgba(242,242,238,0.1)] focus:border-emerald-400 px-4 py-3 text-xs text-[#f2f2ee] rounded outline-none transition-colors"
+                    className="w-full bg-[#111111] border border-[rgba(242,242,238,0.1)] focus:border-blue-400 px-4 py-3 text-xs text-[#f2f2ee] rounded outline-none transition-colors"
                   />
                 </div>
 
@@ -175,18 +175,18 @@ export const ContactSection: React.FC = () => {
                     placeholder="Tell me about your network architecture requirements or web application goals..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-[#111111] border border-[rgba(242,242,238,0.1)] focus:border-emerald-400 px-4 py-3 text-xs text-[#f2f2ee] rounded outline-none transition-colors resize-none"
+                    className="w-full bg-[#111111] border border-[rgba(242,242,238,0.1)] focus:border-blue-400 px-4 py-3 text-xs text-[#f2f2ee] rounded outline-none transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={formSent}
-                  className="w-full py-3.5 bg-[#f2f2ee] text-[#050505] hover:bg-emerald-400 font-bold text-xs uppercase tracking-widest rounded transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3.5 bg-[#f2f2ee] text-[#050505] hover:bg-blue-400 font-bold text-xs uppercase tracking-widest rounded transition-all flex items-center justify-center gap-2"
                 >
                   {formSent ? (
                     <>
-                      <Check className="w-4 h-4 text-emerald-800" />
+                      <Check className="w-4 h-4 text-blue-800" />
                       <span>{t('contactSent')}</span>
                     </>
                   ) : (

@@ -47,7 +47,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal }) => {
         <div className="flex justify-center mb-6">
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-[#0d0d0d]/90 border border-[rgba(242,242,238,0.2)] hover:border-emerald-400/80 backdrop-blur-md text-xs text-[#f2f2ee] transition-all group shadow-xl"
+            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-[#0d0d0d]/90 border border-[rgba(242,242,238,0.2)] hover:border-blue-400/80 backdrop-blur-md text-xs text-[#f2f2ee] transition-all group shadow-xl"
           >
             <span className="px-1.5 py-0.5 rounded border border-current text-[10px] font-bold">
               MI
@@ -55,7 +55,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal }) => {
             <span className="text-[11px] tracking-wider text-[#8a8a86] group-hover:text-[#f2f2ee] transition-colors">
               AVAILABLE FOR FULL-TIME &amp; CONTRACTS — SURABAYA (ITS)
             </span>
-            <span className="text-emerald-400 font-bold group-hover:translate-x-0.5 transition-transform">
+            <span className="text-blue-400 font-bold group-hover:translate-x-0.5 transition-transform">
               CONTACT ↗
             </span>
           </a>
@@ -74,14 +74,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal }) => {
             </div>
             <div>
               <span className="text-[#52524e] block text-[9px]">SPECIALIZATION</span>
-              <span className="text-emerald-400 font-semibold">NETWORKS • BGP • ROUTEROS • WEB</span>
+              <span className="text-blue-400 font-semibold">NETWORKS • BGP • ROUTEROS • WEB</span>
             </div>
             <div className="text-right flex items-center justify-end gap-2">
               <div>
                 <span className="text-[#52524e] block text-[9px]">LOCAL TIME</span>
                 <span className="text-[#f2f2ee]">{localTime || 'WIB'}</span>
               </div>
-              <Star className="w-3.5 h-3.5 text-emerald-400" />
+              <Star className="w-3.5 h-3.5 text-blue-400" />
             </div>
           </div>
         </RevealWrapper>
@@ -89,7 +89,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal }) => {
         {/* Main Hero Body: Stacked High-Contrast Headline & Narrative */}
         <div className="my-auto py-10 max-w-3xl">
           <div className="text-xs tracking-widest text-[#8a8a86] uppercase mb-4 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
             <span>[ 00 ] - OPEN TO COLLABORATIONS</span>
           </div>
 
@@ -97,7 +97,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal }) => {
             <ProximityText minWeight={180} maxWeight={900} radius={320}>
               BUILDING RESILIENT
             </ProximityText> <br />
-            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#f2f2ee] via-emerald-300 to-[#8a8a86]">
+            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#f2f2ee] via-blue-300 to-[#8a8a86]">
               <ProximityText minWeight={400} maxWeight={900} radius={320}>
                 NETWORKS &amp; WEB
               </ProximityText>
@@ -117,7 +117,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal }) => {
             <div className="mt-8 flex flex-wrap items-center gap-4 text-xs tracking-wider">
               <a
                 href="#projects"
-                className="px-6 py-3.5 bg-[#f2f2ee] text-[#050505] hover:bg-emerald-400 transition-all font-bold rounded-sm flex items-center gap-2"
+                className="px-6 py-3.5 bg-[#f2f2ee] text-[#050505] hover:bg-blue-400 transition-all font-bold rounded-sm flex items-center gap-2"
               >
                 <span>SEE PROJECTS</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -135,7 +135,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal }) => {
                 className="flex items-center gap-2 px-5 py-3.5 border border-[rgba(242,242,238,0.2)] bg-[rgba(242,242,238,0.03)] hover:bg-[rgba(242,242,238,0.1)] text-[#f2f2ee] transition-all rounded-sm"
                 title="Launch Terminal CLI"
               >
-                <Terminal className="w-4 h-4 text-emerald-400" />
+                <Terminal className="w-4 h-4 text-blue-400" />
                 <span>CLI</span>
               </button>
             </div>
@@ -144,7 +144,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal }) => {
 
         {/* Giant Bottom Full-Width Name (Christen Dijoux Signature Style) */}
         <div className="pt-4 border-t border-[rgba(242,242,238,0.06)] overflow-hidden">
-          <div className="font-display font-light text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[rgba(242,242,238,0.18)] hover:text-[rgba(52,211,153,0.4)] transition-colors tracking-tighter uppercase whitespace-nowrap overflow-x-hidden">
+          <div className="font-display font-light text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[rgba(242,242,238,0.18)] hover:text-[rgba(96, 165, 250,0.4)] transition-colors tracking-tighter uppercase whitespace-nowrap overflow-x-hidden">
             <ProximityText minWeight={100} maxWeight={900} radius={280}>
               MUHAMMAD IHSAN
             </ProximityText>

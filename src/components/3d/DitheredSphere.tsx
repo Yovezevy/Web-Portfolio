@@ -116,7 +116,7 @@ export const DitheredSphere: React.FC<DitheredSphereProps> = ({ className = '' }
     // 3. Orbital Ring (Network Topology Orbit)
     const ringGeo = new THREE.RingGeometry(1.7, 1.72, 64);
     const ringMat = new THREE.MeshBasicMaterial({
-      color: 0x22c55e,
+      color: 0x3b82f6,
       side: THREE.DoubleSide,
       transparent: true,
       opacity: 0.25,

@@ -62,7 +62,7 @@ export const HorizontalProjectsSection: React.FC = () => {
       {/* Section Header */}
       <div className="pt-24 px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
         <div>
-          <span className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-3 block">
+          <span className="font-mono text-xs tracking-widest uppercase text-blue-400 mb-3 block">
             {t('projTag')}
           </span>
           <MaskedHeading
@@ -71,7 +71,7 @@ export const HorizontalProjectsSection: React.FC = () => {
           >
             SELECTED ARCHITECTURE
           </MaskedHeading>
-          <div className="font-display font-extrabold text-5xl md:text-7xl uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#f2f2ee] via-emerald-300 to-[#8a8a86] tracking-tight">
+          <div className="font-display font-extrabold text-5xl md:text-7xl uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#f2f2ee] via-blue-300 to-[#8a8a86] tracking-tight">
             &amp; SYSTEMS WORK
           </div>
         </div>
@@ -79,7 +79,7 @@ export const HorizontalProjectsSection: React.FC = () => {
           <span className="hidden md:block">HORIZONTAL EXPLORATION // PIN_SCROLL</span>
           <Link
             to="/projects"
-            className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors uppercase tracking-wider"
+            className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors uppercase tracking-wider"
           >
             <span>{t('allProjectsBtn')}</span>
           </Link>
@@ -96,17 +96,17 @@ export const HorizontalProjectsSection: React.FC = () => {
             <div
               key={project.id}
               data-cursor="EXPLORE"
-              className="w-[85vw] sm:w-[480px] md:w-[560px] p-8 md:p-10 bg-[#0d0d0d] border border-[rgba(242,242,238,0.1)] hover:border-emerald-400/50 transition-colors duration-200 rounded-lg flex flex-col justify-between shrink-0 group relative overflow-hidden"
+              className="w-[85vw] sm:w-[480px] md:w-[560px] p-8 md:p-10 bg-[#0d0d0d] border border-[rgba(242,242,238,0.1)] hover:border-blue-400/50 transition-colors duration-200 rounded-lg flex flex-col justify-between shrink-0 group relative overflow-hidden"
             >
               {/* Massive Kinetic Index Number in Background */}
-              <span className="absolute -bottom-8 -right-4 font-display font-black text-8xl md:text-9xl text-[rgba(242,242,238,0.03)] group-hover:text-[rgba(52,211,153,0.06)] transition-colors select-none pointer-events-none tabular-nums">
+              <span className="absolute -bottom-8 -right-4 font-display font-black text-8xl md:text-9xl text-[rgba(242,242,238,0.03)] group-hover:text-[rgba(96, 165, 250,0.06)] transition-colors select-none pointer-events-none tabular-nums">
                 {(idx + 1).toString().padStart(2, '0')}
               </span>
 
               <div>
                 {/* Card Top: Year & Category */}
                 <div className="flex items-center justify-between text-xs font-mono text-[#8a8a86] mb-6">
-                  <span className="text-emerald-400 font-bold">
+                  <span className="text-blue-400 font-bold">
                     {project.year} // 0{idx + 1}
                   </span>
                   <span className="px-2.5 py-1 rounded bg-[rgba(242,242,238,0.04)] border border-[rgba(242,242,238,0.08)]">
@@ -115,7 +115,7 @@ export const HorizontalProjectsSection: React.FC = () => {
                 </div>
 
                 {/* Title & Role */}
-                <h3 className="font-display text-3xl md:text-4xl text-[#f2f2ee] tracking-wide mb-3 group-hover:text-emerald-300 transition-colors">
+                <h3 className="font-display text-3xl md:text-4xl text-[#f2f2ee] tracking-wide mb-3 group-hover:text-blue-300 transition-colors">
                   {project.title}
                 </h3>
                 <p className="font-mono text-xs text-[#52524e] mb-5 uppercase tracking-wider">
@@ -133,7 +133,7 @@ export const HorizontalProjectsSection: React.FC = () => {
                     {project.metrics.map((m) => (
                       <div key={m.label}>
                         <span className="text-[10px] text-[#52524e] uppercase block">{m.label}</span>
-                        <span className="text-emerald-400 font-semibold">{m.value}</span>
+                        <span className="text-blue-400 font-semibold">{m.value}</span>
                       </div>
                     ))}
                   </div>
@@ -171,7 +171,7 @@ export const HorizontalProjectsSection: React.FC = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 transition-colors"
+                      className="flex items-center gap-1.5 text-blue-400 hover:text-blue-300 transition-colors"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
                       <span>DEMO</span>
@@ -191,8 +191,8 @@ export const HorizontalProjectsSection: React.FC = () => {
           ))}
 
           {/* Final Call to Action Slide in Horizontal Track */}
-          <div className="w-[85vw] sm:w-[380px] p-8 md:p-10 bg-[#0d0d0d] border border-dashed border-[rgba(242,242,238,0.15)] rounded-lg flex flex-col justify-between shrink-0 group hover:border-emerald-400 transition-colors">
-            <span className="font-mono text-xs text-emerald-400 uppercase tracking-widest">
+          <div className="w-[85vw] sm:w-[380px] p-8 md:p-10 bg-[#0d0d0d] border border-dashed border-[rgba(242,242,238,0.15)] rounded-lg flex flex-col justify-between shrink-0 group hover:border-blue-400 transition-colors">
+            <span className="font-mono text-xs text-blue-400 uppercase tracking-widest">
               END OF SHOWCASE
             </span>
             <div className="my-auto py-8">
@@ -204,7 +204,7 @@ export const HorizontalProjectsSection: React.FC = () => {
               </p>
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#f2f2ee] text-[#050505] font-bold text-xs font-mono uppercase tracking-widest rounded hover:bg-emerald-400 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#f2f2ee] text-[#050505] font-bold text-xs font-mono uppercase tracking-widest rounded hover:bg-blue-400 transition-colors"
               >
                 <span>OPEN PROJECT ARCHIVE</span>
                 <ArrowRight className="w-4 h-4" />

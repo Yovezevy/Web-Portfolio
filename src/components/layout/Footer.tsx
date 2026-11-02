@@ -82,7 +82,7 @@ export const Footer: React.FC = () => {
                 <span className="font-display text-2xl font-bold text-[#f2f2ee] tracking-wider border border-[rgba(242,242,238,0.2)] px-2 py-0.5 rounded">
                   MI
                 </span>
-                <span className="text-xs text-emerald-400 font-bold uppercase tracking-widest">
+                <span className="text-xs text-blue-400 font-bold uppercase tracking-widest">
                   NET//DEV
                 </span>
               </div>
@@ -96,8 +96,8 @@ export const Footer: React.FC = () => {
               </p>
             </div>
 
-            <div className="flex items-center gap-2 text-[10px] tracking-widest text-emerald-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="flex items-center gap-2 text-[10px] tracking-widest text-blue-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
               <span>STATUS: AVAILABLE FOR CONTRACT &amp; FULL-TIME</span>
             </div>
           </div>
@@ -125,7 +125,7 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/projects" className="text-emerald-400 hover:text-emerald-300 transition-colors inline-flex items-center gap-1">
+                <Link to="/projects" className="text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center gap-1">
                   <span>View All (8+)</span>
                   <span>→</span>
                 </Link>
@@ -145,7 +145,7 @@ export const Footer: React.FC = () => {
                   href="https://www.instagram.com/blog_etc22/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5"
+                  className="hover:text-blue-400 transition-colors inline-flex items-center gap-1.5"
                 >
                   <InstagramIcon />
                   <span>Instagram ↗</span>
@@ -178,7 +178,7 @@ export const Footer: React.FC = () => {
                   href="https://wa.me/6282255176697"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5"
+                  className="hover:text-blue-400 transition-colors inline-flex items-center gap-1.5"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
                   <span>WhatsApp ↗</span>
@@ -204,7 +204,7 @@ export const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-2.5 text-xs text-[#8a8a86]">
               <li>
-                <Link to="/cv" className="text-[#f2f2ee] font-semibold hover:text-emerald-400 transition-colors">
+                <Link to="/cv" className="text-[#f2f2ee] font-semibold hover:text-blue-400 transition-colors">
                   View ATS Resume
                 </Link>
               </li>
@@ -234,7 +234,7 @@ export const Footer: React.FC = () => {
               <p className="text-[#f2f2ee]">TEKNIK KOMPUTER</p>
               <p>INSTITUT TEKNOLOGI</p>
               <p>SEPULUH NOPEMBER (ITS)</p>
-              <p className="text-emerald-400 pt-2 text-[11px] font-mono">
+              <p className="text-blue-400 pt-2 text-[11px] font-mono">
                 {profileData.coordinates}
               </p>
               <p className="text-[10px] text-[#52524e] pt-1">

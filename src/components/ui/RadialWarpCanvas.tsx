@@ -154,7 +154,7 @@ export const RadialWarpCanvas: React.FC<RadialWarpCanvasProps> = ({
       // Outer accent pulse ring
       ctx.beginPath();
       ctx.arc(centerX, centerY, 28, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(34, 197, 94, 0.4)';
+      ctx.strokeStyle = 'rgba(59, 130, 246, 0.4)';
       ctx.lineWidth = 1.5;
       ctx.stroke();
 
